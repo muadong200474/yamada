@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="author" content="LamPT" />
+    <meta
+      name="description"
+      content="Nhiệt kế điện tử hồng ngoại đo trán Yamada, đo thân nhiệt, nhiệt độ phòng, sữa và nước tắm siêu nhanh chỉ 1 giây. Thiết kế công thái học, cảnh báo thân nhiệt qua màn hình 3 màu đèn nền. "
+    />
+    <meta
+      name="keywords"
+      content="Yamada, Yamada Japan, nhiệt kế yamada, nhiệt kế, nhiệt kế hồng ngoại, nhiệt kế đo trán"
+    />
+
+    <meta property="og:url" content="https://nhietke.yamada-japan.com" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Nhiệt kế hồng ngoại đo trán Yamada Nhật Bản"
+    />
+    <meta property="og:image" content="img/yamada_2.png" />
+    <meta
+      property="og:description"
+      content="Nhiệt kế điện tử hồng ngoại đo trán Yamada, đo thân nhiệt, nhiệt độ phòng, sữa và nước tắm siêu nhanh chỉ 1 giây. Thiết kế công thái học, cảnh báo thân nhiệt qua màn hình 3 màu đèn nền. "
+    />
+
+    <title>Nhiệt kế điện tử hồng ngoại đo trán Yamada</title>
+
+    <link rel="shortcut icon" type="image/png" href="img/favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Site library -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+    />
+
+    <!-- Page library -->
+    <link rel="stylesheet" href="css/nhietke.css" />
+
+    <!-- Facebook Pixel Code -->
+    <script async>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        'script',
+        'https://connect.facebook.net/en_US/fbevents.js',
+      );
+      fbq('init', '444135386156608');
+      fbq('track', 'PageView');
+    </script>
+    <!-- End Facebook Pixel Code -->
+
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+      window.fbAsyncInit = function () {
+        FB.init({
+          xfbml: true,
+          version: 'v8.0',
+        });
+      };
+      (function (d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, 'script', 'facebook-jssdk');
+    </script>
+    <!-- Your Chat Plugin code -->
+    <div
+      class="fb-customerchat"
+      attribution="setup_tool"
+      page_id="306126366728886"
+      theme_color="#fa3c4c"
+      logged_in_greeting="Chào Anh Chị, em có thể hỗ trợ được gì cho mình ạ?"
+      logged_out_greeting="Chào Anh Chị, em có thể hỗ trợ được gì cho mình ạ?"
+    ></div>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-141230589-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-141230589-1');
+    </script>
+    <!-- Global site tag (gtag.js) - Google Ads: 806236185 -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-806236185"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'AW-806236185');
+    </script>
+  </head>
+
+  <body>
+    <!-- Header Area wrapper Starts -->
+    <header>
+      <nav class="navbar">
+        <div class="container">
+          <img data-original="img/logo.png" alt="logo" class="logo lazy" />
+
+          <div style="display: inline-flex">
+            <a href="#" class="nav-link btn order-btn figureout-btn">
+              <p>Đặt hàng</p>
+            </a>
+            <a href="tel:+8433 491 6740" class="nav-link btn nav-contact">
+              <p>Liên lạc</p>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <section class="banner pt-4">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-7 col-12">
+              <h1 class="mb-3">
+                Nhiệt kế điện tử<br />
+                hồng ngoại<br />
+                <span>Yamada Nhật Bản.</span>
+              </h1>
+            </div>
+            <div class="col-md-5 col-12">
+              <img
+                class="img-fluid lazy"
+                data-original="img/yamada_1.png"
+                alt="nhiet ke"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+    <!-- Header Area wrapper End -->
+
+    <div class="bg-grey">
+      <section class="loi-ich-section pt-4 pb-4">
+        <div class="container">
+          <h2 class="text-center">Lợi ích</h2>
+
+          <div class="youtube-player">
+            <iframe
+              src="https://www.youtube.com/embed/WVqg-iD68aQ?rel=0"
+              title="Giới thiệu về nhiệt kế Yamada"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <p class="mt-3 loi-ich-text">
+            Theo dõi tình trạng sức khỏe của con <span>NHANH CHÓNG</span>.<br />
+            Chăm con khoa học, cần <span>NHIỆT ĐỘ</span> phòng phù hợp với trẻ.
+            (Vì con rất nhạy cảm mà)<br />
+            <span>KHÔNG</span> muốn con khó chịu khi kẹp nhiệt kế thủy ngân.
+          </p>
+        </div>
+      </section>
+
+      <section class="price-section">
+        <div class="container">
+          <div class="row align-items-center content text-center">
+            <div class="col-md-6 col-12">
+              <p class="price">
+                Giá mới: <span>599.000đ</span><del>690.000đ</del>
+              </p>
+              <p class="time-title">Thời gian khuyến mãi:</p>
+              <p class="days mb-3"></p>
+            </div>
+            <div class="col-md-6 col-12">
+              <img src="img/gift2.png" alt="middle banner" class="img-fluid" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Functionality Section -->
+    <section class="function-section pt-4 pb-4">
+      <div class="container">
+        <h2 class="text-center">Tính năng</h2>
+        <div class="row justify-content-center align-items-center">
+          <div class="col-lg-4 col-sm-12 col-12">
+            <div class="content-left">
+              <div class="box-item">
+                <div class="text">
+                  <h3>An toàn</h3>
+                  <p>Không sử dụng thủy ngân, an toàn tuyệt đối với trẻ em.</p>
+                </div>
+                <div class="icon">
+                  <img
+                    data-original="img/thuy_ngan.png"
+                    alt="safe"
+                    class="img-fluid lazy"
+                  />
+                </div>
+              </div>
+
+              <div class="box-item">
+                <div class="text">
+                  <h3>Cảnh báo ốm</h3>
+                  <p>
+                    Nhận biết và đưa ra cảnh báo nếu phát hiện dấu hiệu sốt.
+                  </p>
+                </div>
+                <div class="icon">
+                  <img
+                    data-original="img/fever alarm.png"
+                    alt="safe"
+                    class="img-fluid lazy"
+                  />
+                </div>
+              </div>
+
+              <div class="box-item">
+                <div class="text">
+                  <h3>Âm thanh</h3>
+                  <p>Tiếng beep giúp bạn nhận biết dễ dàng hơn.</p>
+                </div>
+                <div class="icon">
+                  <img
+                    data-original="img/beep.png"
+                    alt="safe"
+                    class="img-fluid lazy"
+                  />
+                </div>
+              </div>
+
+              <div class="box-item">
+                <div class="text">
+                  <h3>Đèn nền 3 màu</h3>
+                  <p>
+                    Màn hình sẽ phát sáng Xanh, Vàng hoặc Đỏ tùy vào kết quả đo.
+                  </p>
+                </div>
+                <div class="icon">
+                  <img
+                    data-original="img/3colors.png"
+                    alt="safe"
+                    class="img-fluid lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-sm-12 col-12">
+            <div class="box-shadow text-center">
+              <img
+                data-original="img/yamada_3.png"
+                alt="truc dien"
+                class="img-fluid lazy"
+              />
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-sm-12 col-12">
+            <div class="content-right">
+              <div class="box-item">
+                <div class="icon">
+                  <img
+                    data-original="img/multi.png"
+                    alt="safe"
+                    class="img-fluid lazy"
+                  />
+                </div>
+                <div class="text">
+                  <h3>Đa chức năng</h3>
+                  <p>
+                    Đo nhiệt độ cơ thể, vật thể và môi trường: Tất cả trong một.
+                  </p>
+                </div>
+              </div>
+
+              <div class="box-item">
+                <div class="icon">
+                  <img
+                    data-original="img/fast.png"
+                    alt="safe"
+                    class="img-fluid lazy fast"
+                  />
+                </div>
+                <div class="text">
+                  <h3>Đo siêu tốc</h3>
+                  <p>Đo và hiển thị kết quả chỉ trong 1 giây.</p>
+                </div>
+              </div>
+
+              <div class="box-item">
+                <div class="icon">
+                  <img
+                    data-original="img/pin.png"
+                    alt="safe"
+                    class="img-fluid lazy alkaline"
+                  />
+                </div>
+                <div class="text">
+                  <h3>Thời lượng pin dài</h3>
+                  <p>Sử dụng 2 pin AAA với khoảng 6000 lần đo.</p>
+                </div>
+              </div>
+
+              <div class="box-item">
+                <div class="icon">
+                  <img
+                    data-original="img/memory.png"
+                    alt="safe"
+                    class="img-fluid lazy"
+                  />
+                </div>
+                <div class="text">
+                  <h3>Lưu trữ kết quả</h3>
+                  <p>
+                    Bộ nhớ lưu trữ lớn, giúp bạn theo dõi tình hình sức khỏe
+                    tiện lợi hơn.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <h2 class="text-center">So sánh</h2>
+        <img
+          data-original="img/bang so sanh nhiet ke.jpg"
+          alt="why chose"
+          class="img-fluid lazy compare-img mb-4"
+        />
+      </div>
+    </section>
+    <!-- Functionality Section End -->
+
+    <div class="km d-block d-sm-none">
+      <p class="upto">Giảm tới</p>
+      <p class="gift">15%</p>
+      <p>+</p>
+      <p class="gift">Quà tặng</p>
+      <div class="button mt-3">
+        <a href="#" class="btn order-btn figureout-btn">
+          <p>Đặt hàng</p>
+        </a>
+      </div>
+    </div>
+
+    <!-- Question Section Start -->
+    <section class="question-section pt-4 pb-5">
+      <div class="container">
+        <div class="row top-question">
+          <div class="col-md-6 col-12">
+            <h2 class="title">
+              Tại sao <br />nhiệt kế Yamada <br />luôn là lựa chọn<br />
+              <span class="num1">số 1?</span>
+            </h2>
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="row">
+              <div class="col-6 mb-3">
+                <img
+                  data-original="img/Document.jpg"
+                  alt="antoan"
+                  class="img-fluid lazy"
+                />
+                <h3 class="mt-2">An toàn</h3>
+                <p>
+                  Hoàn toàn không sử dụng thủy ngân độc hại nên vô cùng an toàn.
+                </p>
+              </div>
+
+              <div class="col-6 mb-3">
+                <img
+                  data-original="img/do binh sua.jpg"
+                  alt="antoan"
+                  class="img-fluid lazy"
+                />
+                <h3 class="mt-2">Đa chức năng</h3>
+                <p>
+                  Có thể dùng để đo bình sữa, nước tắm cho bé và nhiệt độ phòng.
+                </p>
+              </div>
+
+              <div class="col-6 mb-3">
+                <img
+                  data-original="img/onesec.jpg"
+                  alt="antoan"
+                  class="img-fluid lazy"
+                />
+                <h3 class="mt-2">Tức thì</h3>
+                <p>
+                  Sau 1 giây sẽ có ngay kết quả đo. Nhanh chóng và không chạm,
+                  không làm khó chịu đến bé yêu.
+                </p>
+              </div>
+
+              <div class="col-6 mb-3">
+                <img
+                  data-original="img/jp_design.jpg"
+                  alt="antoan"
+                  class="img-fluid lazy"
+                />
+                <h3 class="mt-2">Tin cậy</h3>
+                <p>
+                  Được nghiên cứu và thiết kế bởi Yamada Nhật Bản, theo chuẩn CE
+                  của Châu Âu và FDA của Hoa Kỳ.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="warranty-section dashed-section mt-4">
+          <i class="fas fa-plus-circle"></i>
+          <h2 class="mt-3">CHẾ ĐỘ BẢO HÀNH ĐẶC BIỆT</h2>
+          <p class="font-italic desc">
+            Bảo hành 1 đổi 1 tại nhà trong 12 tháng
+          </p>
+          <div class="row mt-3">
+            <div class="col-md-3 col-6">
+              <img
+                data-original="img/warranty.jpg"
+                alt="warranty"
+                class="img-fluid lazy"
+              />
+              <p>
+                1. Khi gặp sự cố, quý khách hãy liên lạc với Yamada như trên
+                phiếu bảo hành
+              </p>
+            </div>
+            <div class="col-md-3 col-6">
+              <img
+                data-original="img/warranty2.jpg"
+                alt="warranty"
+                class="img-fluid lazy"
+              />
+              <p>
+                2. Kỹ thuật viên gọi điện video xác minh tình trạng sản phẩm
+              </p>
+            </div>
+            <div class="col-md-3 col-6">
+              <img
+                data-original="img/warranty3.jpg"
+                alt="warranty"
+                class="img-fluid lazy"
+              />
+              <p>3. Yamada gửi sản phẩm mới tới tận nhà quý khách</p>
+            </div>
+            <div class="col-md-3 col-6">
+              <img
+                data-original="img/warranty4.jpg"
+                alt="warranty"
+                class="img-fluid lazy"
+              />
+              <p>
+                4. Quý khách nhận máy mới và trao trả lại sản phẩm lỗi cho nhân
+                viên giao hàng
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="camket-section dashed-section mt-5">
+          <i class="fas fa-plus-circle"></i>
+          <h2 class="mt-3">CAM KẾT CHÍNH HÃNG</h2>
+          <div class="camket-content mt-3">
+            <p><span>Đầy đủ</span> giấy tờ chứng nhận phân phối</p>
+            <p>
+              <span>Xuất sứ</span> rõ ràng, thông số kĩ thuật được in trên hộp
+              và tem máy
+            </p>
+            <p><span>Sẵn sàng</span> xuất hóa đơn đỏ</p>
+            <p><span>Miễn phí</span> giao hàng toàn quốc</p>
+            <p><span>Bảo hành</span> 1 đổi 1 trong 1 năm ngay TẠI NHÀ</p>
+            <p><span>Kiểm tra</span> hàng trước khi thanh toán</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Question Section End -->
+
+    <!-- Customer Start -->
+    <section class="customer-section pt-4 pb-4">
+      <div class="container text-center">
+        <h2>Khách hàng nói gì về YAMADA</h2>
+        <div class="slider-center slide mt-4"></div>
+      </div>
+    </section>
+    <!-- Customer End -->
+
+    <!-- Step + tieu chuan section Start -->
+    <section class="pt-4 pb-3">
+      <div class="container">
+        <div class="step">
+          <div class="row">
+            <div class="col-md-6 col-12">
+              <h2>Đơn giản</h2>
+              <p class="mb-3">Đơn giản tối đa cách bạn mua hàng</p>
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="row">
+                <div class="col-4 mb-3">
+                  <img
+                    data-original="img/buoc 1.png"
+                    alt="step1"
+                    class="img-fluid lazy"
+                  />
+                </div>
+                <div class="col-4 mb-3">
+                  <img
+                    data-original="img/buoc 2.png"
+                    alt="step2"
+                    class="img-fluid lazy"
+                  />
+                </div>
+                <div class="col-4 mb-3">
+                  <img
+                    data-original="img/buoc 3.png"
+                    alt="step3"
+                    class="img-fluid lazy"
+                  />
+                </div>
+                <div class="col-4">
+                  <img
+                    data-original="img/buoc 4.png"
+                    alt="step4"
+                    class="img-fluid lazy"
+                  />
+                </div>
+                <div class="col-4">
+                  <img
+                    data-original="img/buoc 5.png"
+                    alt="step5"
+                    class="img-fluid lazy"
+                  />
+                </div>
+                <div class="col-4">
+                  <img
+                    data-original="img/buoc 6.png"
+                    alt="step6"
+                    class="img-fluid lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="tieu-chuan">
+          <div class="row">
+            <div class="col-md-6 col-12">
+              <h2>AN TOÀN</h2>
+              <p class="mb-3">Đầy đủ các chứng nhận tiêu chuẩn quốc tế</p>
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="row">
+                <div class="col-4">
+                  <div class="position-relative">
+                    <img
+                      data-original="img/iso.png"
+                      alt="iso"
+                      class="iso lazy"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-4">
+                  <div class="position-relative">
+                    <img data-original="img/CE.png" alt="ce" class="ce lazy" />
+                  </div>
+                </div>
+
+                <div class="col-4">
+                  <div class="position-relative">
+                    <img
+                      data-original="img/FDA.png"
+                      alt="fda"
+                      class="fda lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Step + tieu chuan section End -->
+
+    <!-- Subscribe Section Start -->
+    <div class="container">
+      <section class="subscribes pt-3">
+        <div class="form-section" id="formsec">
+          <h2 class="text-center mb-3">Dành tặng 100 khách hàng</h2>
+
+          <div class="row content align-items-center">
+            <div class="col-lg-6 col-12 text-center mb-3">
+              <p>
+                <span class="with font-italic">Chỉ với</span>
+                <span class="price">599.000đ</span>
+              </p>
+              <p class="del-price text-center">
+                <del>690.000 đ</del>
+              </p>
+              <img
+                data-original="img/gift.jpg"
+                title="gift"
+                class="img-fluid lazy"
+              />
+              <p class="mt-3 mb-2 font-weight-bold">Thời gian khuyến mãi:</p>
+              <p class="days"></p>
+            </div>
+            <div class="col-lg-6 col-12 text-center">
+              <form id="order-form" name="submit-to-google-sheet">
+                <div class="form-group">
+                  <input
+                    name="name"
+                    type="text"
+                    class="form-control"
+                    placeholder="Họ và tên (bắt buộc)"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    name="email"
+                    type="text"
+                    class="form-control"
+                    placeholder="Email"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    name="phone"
+                    type="text"
+                    class="form-control"
+                    placeholder="Nhập số điện thoại (bắt buộc)"
+                  />
+                </div>
+                <div class="form-group">
+                  <textarea
+                    name="note"
+                    class="form-control"
+                    rows="5"
+                    placeholder="Nhập địa chỉ của bạn (bắt buộc)"
+                  ></textarea>
+                </div>
+                <div class="mt-3">
+                  <button type="submit" class="btn order-btn">
+                    Đặt mua ngay
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Subscribe Section End -->
+
+    <section class="social-section mt-3">
+      <div class="container">
+        <div class="row justify-content-center align-self-center">
+          <div class="col-4">
+            <a
+              href="https://tiki.vn/nhiet-ke-dien-tu-hong-ngoai-do-tran-khong-cham-yamada-nhat-ban-do-nhanh-1-giay-canh-bao-sot-man-hinh-3-mau-den-do-sua-nuoc-tam-nhiet-do-phong-p70771723.html?spid=70771724"
+            >
+              <img
+                data-original="/assets/img/tiki.png"
+                alt="tiki"
+                class="lazy img-fluid"
+              />
+            </a>
+          </div>
+          <div class="col-4">
+            <a
+              href="https://shopee.vn/Nhi%E1%BB%87t-k%E1%BA%BF-%C4%91i%E1%BB%87n-t%E1%BB%AD-h%E1%BB%93ng-ngo%E1%BA%A1i-Yamada-Nh%E1%BA%ADt-B%E1%BA%A3n-%C4%90o-nhi%E1%BB%87t-%C4%91%E1%BB%99-c%C6%A1-th%E1%BB%83-s%E1%BB%AFa-n%C6%B0%E1%BB%9Bc-t%E1%BA%AFm-nhi%E1%BB%87t-%C4%91%E1%BB%99-ph%C3%B2ng-i.93125245.2301794030"
+            >
+              <img
+                data-original="/assets/img/shopee.png"
+                alt="shopee"
+                class="lazy img-fluid"
+              />
+            </a>
+          </div>
+          <div class="col-4">
+            <a
+              href="https://www.lazada.vn/products/nhiet-ke-dien-tu-yamada-nhat-ban-mua-1-nhan-4-do-nhiet-do-co-the-sua-nuoc-tam-nhiet-do-phong-i287326638-s453360070.html?spm=a2o4n.searchlist.list.1.d1fe7481UZ5485&search=1"
+            >
+              <img
+                data-original="/assets/img/lazada.png"
+                alt="lazada"
+                class="lazy img-fluid"
+            /></a>
+          </div>
+          <div class="col-4">
+            <a
+              href="https://www.sendo.vn/nhiet-ke-dien-tu-hong-ngoai-yamada-nhat-ban-19090879.html"
+            >
+              <img
+                data-original="/assets/img/sendo.png"
+                alt="sendo"
+                class="lazy img-fluid"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="may-know-section pt-3 pb-3">
+      <div class="container">
+        <h2 class="mb-3">CÓ THỂ BẠN QUAN TÂM</h2>
+        <div class="row justify-content-center">
+          <div class="col-md-3 col-6 mb-3">
+            <a href="/dohuyetap"
+              ><img
+                data-original="/assets/img/huyetap.jpg"
+                width="400px"
+                alt="huyetap"
+                class="img-fluid lazy"
+            /></a>
+          </div>
+          <div class="col-md-3 col-6 mb-3">
+            <a href="/hutsua"
+              ><img
+                data-original="/assets/img/hutsua.jpg"
+                width="400px"
+                alt="hutsua"
+                class="img-fluid lazy"
+            /></a>
+          </div>
+          <div class="col-md-3 col-6 mb-3">
+            <a href="https://genky.vn/cansuckhoe"
+              ><img
+                data-original="/assets/img/genky.jpg"
+                width="400px"
+                alt="hutsua"
+                class="img-fluid lazy"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section Start -->
+    <footer class="mb-3">
+      <div class="container">
+        <hr />
+        <img src="img/logo.png" alt="logo" />
+        <ul>
+          <li>Tầng 4, 264 Ngọc Thụy, Phường Ngọc Thụy, Long Biên, Hà Nội</li>
+          <li>Hotline: <a href="tel:+8433 491 6740">033 491 6740</a></li>
+          <li>
+            Website:
+            <a href="/"> yamada-japan.com </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <div id="callme">
+      <a href="tel:+8433 491 6740" title="liên lạc">
+        <div id="callmeMain"></div>
+      </a>
+    </div>
+
+    <div class="order">
+      <a href="#" class="text-center figureout-btn" title="Đặt hàng">
+        <i class="fas fa-shopping-cart"></i>
+      </a>
+    </div>
+
+    <!-- Confirm Modal -->
+    <div
+      class="modal fade"
+      id="confirmModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="modelTitleId"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Xác nhận thanh toán</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body"></div>
+          <div class="caution"></div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Huỷ
+            </button>
+            <button type="button" class="btn btn-primary" id="cont-btn">
+              Tiếp tục
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="mr-auto text-primary">Khách hàng vừa mua</strong>
+        <button
+          type="button"
+          class="ml-2 mb-1 close"
+          data-dismiss="toast"
+          aria-label="Close"
+        >
+          &times;
+        </button>
+      </div>
+      <div class="toast-body"></div>
+    </div>
+
+    <!-- Site library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js" async></script>
+
+    <!-- Page library -->
+    <script src="js/nhietke.js"></script>
+  </body>
+</html>

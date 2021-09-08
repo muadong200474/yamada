@@ -1,0 +1,5 @@
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^hutsua\.yamada\-japan\.com$
+RewriteRule ^/?$ "https\:\/\/yamada\-japan\.com\/hutsua" [R=301,L]
+
