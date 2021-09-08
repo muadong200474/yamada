@@ -6,6 +6,7 @@
   --text3: #767171;
   --text4: #314584;
   --text5: red;
+  --text6: rgb(46, 170, 167);
   --light: #f8f9fa;
 }
 
@@ -42,7 +43,10 @@ h1 {
   font-size: 2.2rem;
   text-transform: uppercase;
   font-weight: 800;
-  margin-bottom: 7px;
+  background-color: rgb(80, 176, 227);
+  padding: 20px 0 10px 0;
+  color: var(--light);
+  margin-bottom: 0;
 }
 h2 {
   position: relative;
@@ -51,47 +55,11 @@ h2 {
   font-weight: 700;
   text-transform: uppercase;
 }
-h2:not(.customer-title) span {
-  position: relative;
-  z-index: 2;
-  font-size: 1.7rem;
-  color: var(--text4);
-}
-h2:not(.customer-title):before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  height: 74px;
-  width: 108px;
-  background: url('../image/h2-before.png');
-  background-repeat: no-repeat;
-  z-index: 0;
-}
 h3 {
   position: relative;
   font-size: 1.4rem;
   font-weight: 400;
   color: var(--text4);
-}
-h3 span {
-  text-transform: uppercase;
-  color: var(--text3);
-}
-h3 span.special {
-  color: var(--text5);
-}
-h3:before {
-  width: 20px;
-  height: 5px;
-  display: block;
-  content: '';
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  margin-left: -14px;
-  background-color: var(--main2);
 }
 p {
   font-family: 'Times New Roman', Times, serif;
@@ -146,8 +114,8 @@ textarea:focus {
   color: #fff !important;
 }
 .order-btn {
-  background: var(--main2);
-  margin-left: 10px;
+  background-color: rgb(246, 156, 56);
+  margin-right: 5px;
 }
 .order-btn:hover {
   opacity: 0.7;
@@ -157,6 +125,16 @@ textarea:focus {
   color: var(--main) !important;
 }
 .warranty-btn:hover {
+  background-color: var(--main);
+  opacity: 0.7;
+  color: #fff !important;
+}
+.support-btn {
+  border: 2px solid var(--main);
+  color: var(--main) !important;
+  margin-right: 5px;
+}
+.support-btn:hover {
   background-color: var(--main);
   opacity: 0.7;
   color: #fff !important;
@@ -349,53 +327,11 @@ header nav.fixed-top {
 .explore-section {
   padding-bottom: 0;
 }
-.explore-section .functionality > div {
-  padding: 20px 0;
-}
-.explore-section .functionality p {
-  margin-bottom: 7px;
-}
-
-.explore-section .functionality .safe-section {
-  position: relative;
-  padding: 0;
-}
-/* .explore-section .functionality h3:before {
-  width: 20px;
-  height: 5px;
-  display: block;
-  content: '';
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  margin-left: -14px;
-  background-color: var(--main2);
-} */
-/* .explore-section .functionality h3:after {
-  width: 90px;
-  height: 1px;
-  content: '';
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  margin-left: -50px;
-  background-color: var(--main2);
-} */
-.explore-section .functionality .safe-section .content {
-  position: absolute;
-  width: 70%;
-  top: 35px;
-  left: 0;
-  right: 0;
-}
 
 /*==========================================*/
 
 /*       Compare
 /*==========================================*/
-.compare-section img {
-  padding: 0 20px;
-}
 
 /*==========================================*/
 
@@ -433,7 +369,7 @@ header nav.fixed-top {
 }
 .km .price {
   font-size: 45px;
-  color: var(--main2);
+  color: var(--text6);
   font-weight: 700;
 }
 .km .del-price {
@@ -444,10 +380,10 @@ header nav.fixed-top {
   margin-left: 50px;
 }
 .km .days {
-  background: var(--main2);
+  background: var(--text6);
   color: #fff;
   font-weight: 700;
-  max-width: 50%;
+  max-width: 40%;
   border-radius: 10px;
   margin: auto;
 }
@@ -455,18 +391,17 @@ header nav.fixed-top {
   font-size: 20px;
   font-weight: 700;
   box-sizing: border-box;
-  box-shadow: inset 0px -4px rgb(246, 156, 56);
 }
 #order-section .quyenloi {
   margin: 0 auto;
 }
 #order-section .quyenloi i {
-  color: green;
+  color: var(--text6);
   margin-right: 6px;
 }
 #order-section .social-section {
   background-color: #fff;
-  border: 1px solid var(--main2);
+  border: 1px solid var(--text6);
   border-radius: 5px;
   margin: 0 0 30px 0;
   padding: 10px;
@@ -475,6 +410,9 @@ header nav.fixed-top {
 }
 #order-section .quyenloi li {
   font-size: 1.2rem;
+}
+#order-section .submit-form-btn {
+  padding: 10px 20px;
 }
 #confirmModal .modal-body p span {
   font-weight: 600;
@@ -490,7 +428,7 @@ header nav.fixed-top {
 }
 .may-know-section img {
   height: 100%;
-  border: 1px solid #1290a4;
+  border: 1px solid var(--text6);
 }
 
 /*==========================================*/
