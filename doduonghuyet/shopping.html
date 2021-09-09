@@ -229,6 +229,20 @@
             />
           </div>
           <div class="form-group">
+            <p class="font-italic text-left">
+              * Để tránh nhầm lẫn, xin vui lòng kiểm tra kỹ và nhập lại số điện
+              thoại!
+            </p>
+            <input
+              name="confirmPhone"
+              type="text"
+              id="confirmPhone-duonghuyet"
+              class="form-control"
+              placeholder="Xác nhận số điện thoại (bắt buộc)"
+              v-model="confirmPhone"
+            />
+          </div>
+          <div class="form-group">
             <textarea
               name="address"
               id="address-duonghuyet"
@@ -319,6 +333,7 @@
           email: '',
           address: '',
           phone: '',
+          confirmPhone: '',
           machine: {
             id: 1,
             name: 'Máy đo đường huyết Yamada',
@@ -399,19 +414,24 @@
                 $('#cont-btn').attr('disabled', true);
                 $('.caution').append('Xin chờ trong giây lát...');
 
+                const machineInfo = machine.checked
+                  ? `${machine.name} (x${machine.quantity}) - ${
+                      machine.quantity * machine.price
+                    }`
+                  : '';
+                const comboInfo = combo.checked
+                  ? `${combo.name} (x${combo.quantity}) - ${
+                      combo.quantity * comboPrice
+                    }`
+                  : '';
+
                 let data = {
                   name,
                   phone,
                   address,
                   email,
-                  machineName: machine.checked ? machine.name : '',
-                  machineQuantity: machine.checked ? machine.quantity : '',
-                  machinePrice: machine.checked
-                    ? machine.quantity * machine.price
-                    : '',
-                  comboName: combo.checked ? combo.name : '',
-                  comboQuantity: combo.checked ? combo.quantity : '',
-                  comboPrice: combo.checked ? combo.quantity * comboPrice : '',
+                  machineInfo: machineInfo,
+                  comboInfo: comboInfo,
                   total: totalPrice,
                 };
                 //send email

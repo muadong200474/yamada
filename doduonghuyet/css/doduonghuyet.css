@@ -48,12 +48,24 @@ h1 {
   color: var(--light);
   margin-bottom: 0;
 }
-h2 {
+.section-title {
   position: relative;
+}
+.section-title h2 {
   text-align: center;
-  margin-bottom: 25px;
   font-weight: 700;
+  color: #202020;
   text-transform: uppercase;
+  word-spacing: 1px;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+.section-title .title-line {
+  width: 60px;
+  position: relative;
+  margin: 0 auto;
+  border-bottom: 4px solid #dfdfdf;
+  margin-bottom: 25px;
 }
 h3 {
   position: relative;
