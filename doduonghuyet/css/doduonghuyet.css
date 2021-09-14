@@ -40,7 +40,7 @@ section p {
   padding: 0 10px;
 }
 h1 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   text-transform: uppercase;
   font-weight: 800;
   background-color: rgb(80, 176, 227);
@@ -59,6 +59,7 @@ h1 {
   word-spacing: 1px;
   letter-spacing: 2px;
   margin-bottom: 15px;
+  font-size: 1.6rem;
 }
 .section-title .title-line {
   width: 60px;
@@ -66,12 +67,6 @@ h1 {
   margin: 0 auto;
   border-bottom: 4px solid #dfdfdf;
   margin-bottom: 25px;
-}
-h3 {
-  position: relative;
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: var(--text4);
 }
 p {
   font-family: 'Times New Roman', Times, serif;
@@ -93,6 +88,8 @@ ol {
   margin: 0;
   padding: 0;
 }
+
+/* form error */
 .error {
   color: red;
 }
@@ -267,6 +264,9 @@ textarea:focus {
 header {
   transition: all 0.4s;
 }
+header nav.navbar {
+  padding: 0.5em 0.3em;
+}
 header nav.fixed-top {
   animation: smoothScroll 0.7s forwards;
   background-color: #fff;
@@ -287,50 +287,6 @@ header nav.fixed-top {
 
 /*       Price
 /*==========================================*/
-.price-section {
-  position: relative;
-  background: linear-gradient(
-    -45deg,
-    #efefbb 0%,
-    #efefbb 35%,
-    #d4d3dd 75%,
-    #d4d3dd 100%
-  );
-  padding: 1.5rem;
-  border-radius: 5px;
-  margin: 1.5rem;
-  margin-top: 0;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
-    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
-}
-.price-section .price {
-  font-size: 1rem;
-  text-transform: uppercase;
-}
-.price-section .price span {
-  font-size: 2rem;
-  font-weight: 700;
-  box-sizing: border-box;
-  box-shadow: inset 0px -7px var(--main);
-  margin: 0 10px 0 0;
-}
-.price-section .price del {
-  font-size: 0.8rem;
-  color: grey;
-}
-.price-section .time-title {
-  font-weight: 700;
-  margin-top: 10px;
-}
-.price-section .days {
-  background: var(--main);
-  color: #fff;
-  font-weight: 700;
-  max-width: 11rem;
-  border-radius: 10px;
-  margin: auto;
-  font-size: 0.9rem;
-}
 
 /*==========================================*/
 
@@ -372,38 +328,38 @@ header nav.fixed-top {
 
 /*       Order form
 /*==========================================*/
-.duonghuyet-img {
+#order-section .duonghuyet-img {
   border: 1px var(--text2) solid;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
-.km .with {
+#order-section .km .with {
   font-size: 16px;
   text-transform: uppercase;
   text-decoration: underline;
   color: rgba(74, 71, 71, 1);
   margin-right: 10px;
 }
-.km .price {
+#order-section .km .price {
   font-size: 45px;
   color: var(--text6);
   font-weight: 700;
 }
-.km .del-price {
+#order-section .km .del-price {
   font-size: 20px;
   color: grey;
   font-weight: 300;
   margin-top: -15px;
   margin-left: 50px;
 }
-.km .days {
+#order-section .km .days {
   background: var(--text6);
   color: #fff;
   font-weight: 700;
-  max-width: 40%;
+  max-width: 13rem;
   border-radius: 10px;
   margin: auto;
 }
-.km .more-gift span {
+#order-section .km .more-gift span {
   font-size: 20px;
   font-weight: 700;
   box-sizing: border-box;
@@ -428,9 +384,6 @@ header nav.fixed-top {
 }
 #order-section .submit-form-btn {
   padding: 10px 20px;
-}
-#confirmModal .modal-body p span {
-  font-weight: 600;
 }
 
 /*==========================================*/
@@ -526,5 +479,26 @@ footer hr {
   #order-section #order-form {
     max-width: 75%;
     margin: 0 auto;
+  }
+}
+
+@media (max-width: 350px) {
+  header nav {
+    flex-direction: column;
+  }
+  header nav .nav-link {
+    margin-top: 0.4em;
+  }
+  h1 {
+    font-size: 1.7em;
+  }
+  .section-title h2 {
+    font-size: 1.3em;
+  }
+}
+
+@media (min-width: 767px) {
+  .section-title h2 {
+    font-size: 2.6rem;
   }
 }
