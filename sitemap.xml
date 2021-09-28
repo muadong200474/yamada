@@ -1,37 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
 <url>
-  <loc>https://yamada-japan.com/</loc>
-  <lastmod>2021-06-02T15:48:50+00:00</lastmod>
-  <priority>1.00</priority>
+<loc>https://yamadacare.vn/</loc>
+<lastmod>2021-09-28T09:46:36+00:00</lastmod>
+<priority>1.00</priority>
 </url>
 <url>
-  <loc>https://yamada-japan.com/nhietke/</loc>
-  <lastmod>2021-06-02T15:32:37+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://yamadacare.vn/nhietke/</loc>
+<lastmod>2021-09-28T09:44:37+00:00</lastmod>
+<priority>0.80</priority>
 </url>
 <url>
-  <loc>https://yamada-japan.com/dohuyetap/</loc>
-  <lastmod>2021-06-02T15:31:51+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://yamadacare.vn/dohuyetap/</loc>
+<lastmod>2021-09-28T09:45:28+00:00</lastmod>
+<priority>0.80</priority>
 </url>
 <url>
-  <loc>https://yamada-japan.com/hutsua/</loc>
-  <lastmod>2021-06-02T15:30:15+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://yamadacare.vn/hutsua/</loc>
+<lastmod>2021-09-28T09:45:05+00:00</lastmod>
+<priority>0.80</priority>
 </url>
 <url>
-  <loc>https://yamada-japan.com/dohuyetap/shopping.html</loc>
-  <lastmod>2021-06-02T15:21:51+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://yamadacare.vn/doduonghuyet/</loc>
+<lastmod>2021-09-28T09:45:47+00:00</lastmod>
+<priority>0.80</priority>
 </url>
-
-
+<url>
+<loc>https://yamadacare.vn/dohuyetap/shopping.html</loc>
+<lastmod>2021-09-28T09:45:28+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://yamadacare.vn/doduonghuyet/shopping.html</loc>
+<lastmod>2021-09-28T09:45:47+00:00</lastmod>
+<priority>0.64</priority>
+</url>
 </urlset>
