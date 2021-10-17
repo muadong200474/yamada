@@ -627,6 +627,9 @@ mobile or only mobile
     top: 80px;
     bottom: unset;
   }
+  footer {
+    min-height: 250px;
+  }
 }
 @media (max-width: 426px) {
   h1 {
