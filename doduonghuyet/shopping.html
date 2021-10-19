@@ -33,7 +33,7 @@
 
     <title>Máy đo đường huyết Yamada | Trang mua hàng</title>
 
-    <link rel="shortcut icon" type="image/png" href="img/favicon.ico" />
+    <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.ico" />
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700"
       rel="stylesheet"
@@ -448,7 +448,7 @@
                   To: 'sonpt91.bkhn@gmail.com',
                   From: 'noreply200474@gmail.com',
                   Subject: 'Customer subcriber',
-                  Body: `1. Tên khách hàng: ${data.name}, 2.Email: ${data.email}, 3. SĐT: ${data.phone}, 4. Địa chỉ: ${data.address}, 5. Đơn hàng: ${data.products}, 6. Tổng tiền: ${data.total}`,
+                  Body: `1. Tên khách hàng: ${data.name}, 2.Email: ${data.email}, 3. SĐT: ${data.phone}, 4. Địa chỉ: ${data.address}, 5. Đơn hàng: 5.1 Máy: ${data.machineInfo} 5.2 Combo: ${data.comboInfo}, 6. Tổng tiền: ${data.total}`,
                 }).then((message) => console.log(message));
                 Email.send({
                   Host: 'smtp.elasticemail.com',
@@ -457,23 +457,23 @@
                   To: 'vuvantrung21@gmail.com',
                   From: 'noreply200474@gmail.com',
                   Subject: 'Customer subcriber',
-                  Body: `1. Tên khách hàng: ${data.name}, 2.Email: ${data.email}, 3. SĐT: ${data.phone}, 4. Địa chỉ: ${data.address}, , 5. Đơn hàng: ${data.products}, 6. Tổng tiền: ${data.total}`,
+                  Body: `1. Tên khách hàng: ${data.name}, 2.Email: ${data.email}, 3. SĐT: ${data.phone}, 4. Địa chỉ: ${data.address}, 5. Đơn hàng: 5.1 Máy: ${data.machineInfo} 5.2 Combo: ${data.comboInfo}, 6. Tổng tiền: ${data.total}`,
                 }).then((message) => console.log(message));
 
-                // fill in gg excel
-                var dataUrl =
-                  'https://script.google.com/macros/s/AKfycbxccF9tfPvWJScddI8BOquUK47nuX4tQOHkBqZOJcim8ZM2PqIkwKzDmLgZUBdZch_W/exec';
+                // // fill in gg excel
+                // var dataUrl =
+                //   'https://script.google.com/macros/s/AKfycbxccF9tfPvWJScddI8BOquUK47nuX4tQOHkBqZOJcim8ZM2PqIkwKzDmLgZUBdZch_W/exec';
 
-                $.ajax({
-                  type: 'POST',
-                  url: dataUrl,
-                  dataType: 'json',
-                  crossDomain: true,
-                  data: data,
-                  success: function (response) {
-                    window.location = 'thanks.html';
-                  },
-                });
+                // $.ajax({
+                //   type: 'POST',
+                //   url: dataUrl,
+                //   dataType: 'json',
+                //   crossDomain: true,
+                //   data: data,
+                //   success: function (response) {
+                //     window.location = 'thanks.html';
+                //   },
+                // });
               });
             }
           },
