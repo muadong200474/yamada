@@ -51,6 +51,20 @@
 
     <!-- Page library -->
     <link rel="stylesheet" type="text/css" href="css/shopping.css" />
+    <!-- Global site tag (gtag.js) - Google Ads: 806236185 -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-806236185"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'AW-806236185');
+    </script>
   </head>
 
   <body>
@@ -460,20 +474,20 @@
                   Body: `1. Tên khách hàng: ${data.name}, 2.Email: ${data.email}, 3. SĐT: ${data.phone}, 4. Địa chỉ: ${data.address}, 5. Đơn hàng: 5.1 Máy: ${data.machineInfo} 5.2 Combo: ${data.comboInfo}, 6. Tổng tiền: ${data.total}`,
                 }).then((message) => console.log(message));
 
-                // // fill in gg excel
-                // var dataUrl =
-                //   'https://script.google.com/macros/s/AKfycbxccF9tfPvWJScddI8BOquUK47nuX4tQOHkBqZOJcim8ZM2PqIkwKzDmLgZUBdZch_W/exec';
+                // fill in gg excel
+                var dataUrl =
+                  'https://script.google.com/macros/s/AKfycbxccF9tfPvWJScddI8BOquUK47nuX4tQOHkBqZOJcim8ZM2PqIkwKzDmLgZUBdZch_W/exec';
 
-                // $.ajax({
-                //   type: 'POST',
-                //   url: dataUrl,
-                //   dataType: 'json',
-                //   crossDomain: true,
-                //   data: data,
-                //   success: function (response) {
-                //     window.location = 'thanks.html';
-                //   },
-                // });
+                $.ajax({
+                  type: 'POST',
+                  url: dataUrl,
+                  dataType: 'json',
+                  crossDomain: true,
+                  data: data,
+                  success: function (response) {
+                    window.location = 'thanks.html';
+                  },
+                });
               });
             }
           },
