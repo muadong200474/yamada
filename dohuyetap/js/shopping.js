@@ -73,20 +73,20 @@ function sendEmail(data) {
     Host: 'smtp.elasticemail.com',
     Username: 'noreply200474@gmail.com',
     Password: '281171344F3555517A2432D2031290CF228A',
-    To: 'sonpt91.bkhn@gmail.com',
+    To: 'sonpt91.bkhn@gmail.com, store.anphu@gmail.com, vuvantrung21@gmail.com',
     From: 'noreply200474@gmail.com',
     Subject: 'Customer subcriber',
     Body: `1. Tên khách hàng: ${data.name}, 2.Email: ${data.email}, 3. SĐT: ${data.phone}, 4. Địa chỉ: ${data.address}, 5. Đơn hàng: ${data.products}, 6. Tổng tiền: ${data.total}`,
   }).then((message) => console.log(message));
-  Email.send({
-    Host: 'smtp.elasticemail.com',
-    Username: 'noreply200474@gmail.com',
-    Password: '281171344F3555517A2432D2031290CF228A',
-    To: 'vuvantrung21@gmail.com',
-    From: 'noreply200474@gmail.com',
-    Subject: 'Customer subcriber',
-    Body: `1. Tên khách hàng: ${data.name}, 2.Email: ${data.email}, 3. SĐT: ${data.phone}, 4. Địa chỉ: ${data.address}, , 5. Đơn hàng: ${data.products}, 6. Tổng tiền: ${data.total}`,
-  }).then((message) => console.log(message));
+  // Email.send({
+  //   Host: 'smtp.elasticemail.com',
+  //   Username: 'noreply200474@gmail.com',
+  //   Password: '281171344F3555517A2432D2031290CF228A',
+  //   To: 'vuvantrung21@gmail.com',
+  //   From: 'noreply200474@gmail.com',
+  //   Subject: 'Customer subcriber',
+  //   Body: `1. Tên khách hàng: ${data.name}, 2.Email: ${data.email}, 3. SĐT: ${data.phone}, 4. Địa chỉ: ${data.address}, , 5. Đơn hàng: ${data.products}, 6. Tổng tiền: ${data.total}`,
+  // }).then((message) => console.log(message));
 }
 
 function fillInForm(url, data) {
