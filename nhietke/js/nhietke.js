@@ -210,15 +210,21 @@ $(function () {
 /* Send email
 ========================================================*/
 function sendEmail(data) {
-  Email.send({
-    Host: 'smtp.elasticemail.com',
-    Username: 'noreply200474@gmail.com',
-    Password: '281171344F3555517A2432D2031290CF228A',
-    To: 'sonpt91.bkhn@gmail.com, store.anphu@gmail.com, vuvantrung21@gmail.com',
-    From: 'noreply200474@gmail.com',
-    Subject: 'Customer subcriber',
-    Body: `1. Tên khách hàng: ${data.name}, 2.Email: ${data.email}, 3. SĐT: ${data.phone}, 4. Địa chỉ: ${data.address}`,
-  }).then((message) => console.log(message));
+  emailjs
+    .send('service_ryhkd2l', 'template_dgedooh', {
+      subject: `Khách hàng ${data.name} mua nhiệt kế`,
+      reply_to:
+        'sonpt91.bkhn@gmail.com, store.anphu@gmail.com, vuvantrung21@gmail.com',
+      body: `1. Tên khách hàng: ${data.name}, 2.Email: ${data.email}, 3. SĐT: ${data.phone}, 4. Địa chỉ: ${data.address}`,
+    })
+    .then((message) => console.log(message));
+  // Email.send({
+  //   SecureToken: 'f51d27bf-69d9-4dc9-a953-92202ac6a4a4',
+  //   To: 'coldwind1911@gmail.com',
+  //   From: 'noreply200474@gmail.com',
+  //   Subject: 'Customer subcriber',
+  //   Body: `1. Tên khách hàng: ${data.name}, 2.Email: ${data.email}, 3. SĐT: ${data.phone}, 4. Địa chỉ: ${data.address}`,
+  // }).then((message) => console.log(message));
   // Email.send({
   //   Host: 'smtp.elasticemail.com',
   //   Username: 'noreply200474@gmail.com',
