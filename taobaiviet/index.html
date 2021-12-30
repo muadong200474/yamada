@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>YAMADA CREATE BLOG</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/native-toast@1.2.1/dist/native-toast.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script src="https://unpkg.com/native-toast@1.2.1/dist/native-toast.js"></script>
+    <script src="https://cdn.tiny.cloud/1/7ogsdipvwc3r0pcu8mlxy16u53l4pd8j3me4uh4x7u810q4y/tinymce/5/tinymce.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-mce@1.5.2/dist/vue-mce.web.js"></script>
+    <style>
+      .blog-content img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="blog" class="container mt-3 mb-3">
+      <!-- New Blog Create -->
+      <form @submit.prevent="storeBlog">
+        <div class="form-group">
+          <label>Title:</label>
+          <input v-model="blog.title" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label>Content:</label>
+          <vue-mce v-model="blog.content" :config="tinyMCEConfig" />
+        </div>
+        <div class="form-group">
+          <label>Image Address:</label>
+          <input v-model="blog.image" class="form-control" />
+        </div>
+        <button v-if="!editingBlog" class="btn btn-primary">Create</button>
+        <div v-else>
+          <a @click.prevent="cancelEditing" href="#" class="btn btn-primary">
+            Cancel
+          </a>
+          <a @click.prevent="updateBlog" href="#" class="btn btn-warning">
+            Update
+          </a>
+        </div>
+      </form>
+      <hr />
+      <!-- Messages -->
+      <div v-if="!editingBlog" v-for="blog in blogs" class="card mt-3">
+        <div class="card-body">
+          <!-- image -->
+          <div class="card-text d-flex flex-row">
+            <img v-bind:src="blog.image" alt="img-blog" width="100px" />
+            <div class="ml-3">
+              <!-- title -->
+              <h4 class="card-text">{{ blog.title }}</h4>
+              <div>{{ blog.updated_at }}</div>
+            </div>
+          </div>
+          <hr />
+          <!-- content -->
+          <div class="blog-content">
+            <div class="card-text" v-html="blog.content"></div>
+          </div>
+
+          <!-- actions -->
+          <div class="blog-action">
+            <a @click.prevent="deleteBlog(blog)" href="#" class="card-link">
+              delete
+            </a>
+            <a @click.prevent="editBlog(blog)" href="#" class="card-link">
+              edit
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      const config = {
+        apiKey: 'AIzaSyBwMUDkYK8pDSohRNssV49rJby3i0OH-G8',
+        authDomain: 'yamada-332502.firebaseapp.com',
+        projectId: 'yamada-332502',
+        databaseURL: 'https://yamada-332502-default-rtdb.firebaseio.com/',
+        storageBucket: 'yamada-332502.appspot.com',
+        messagingSenderId: '47474644175',
+        appId: '1:47474644175:web:098d5bb201a7a9d4c113ba',
+      };
+      firebase.initializeApp(config);
+
+      const blogsRef = firebase.database().ref('blogs');
+
+      const fillData = (blogs, data) => {
+        if (typeof data === 'object') {
+          Object.keys(blogs).forEach((key) => {
+            blogs[key] = data[key];
+          });
+        } else {
+          Object.keys(blogs).forEach((key) => {
+            blogs[key] = '';
+          });
+        }
+      };
+
+      const formatDate = (UNIX_timestamp) => {
+        var a = new Date(UNIX_timestamp);
+        var year = a.getFullYear();
+        var month = a.getMonth();
+        var date = a.getDate();
+
+        return date + '/' + month + '/' + year;
+      };
+
+      const tinyMCEConfig = {
+        height: 500,
+        inline: false,
+        fontsize_formats:
+          '8px 10px 12px 14px 16px 18px 20px 22px 24px 26px 28px 30px 34px 38px 42px 48px 54px 60px',
+        plugins:
+          'preview fullpage powerpaste searchreplace autolink directionality advcode visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount a11ychecker imagetools mediaembed  linkchecker contextmenu colorpicker textpattern help',
+        toolbar1:
+          'formatselect fontsizeselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
+        image_advtab: true,
+      };
+
+      new Vue({
+        el: '#blog',
+
+        data: {
+          tinyMCEConfig,
+          blogs: [],
+          blog: {
+            title: '',
+            content: '',
+            image: '',
+          },
+          editingBlog: null,
+        },
+
+        methods: {
+          storeBlog() {
+            blogsRef.push({
+              ...this.blog,
+              created_at: Date.now(),
+              updated_at: Date.now(),
+            });
+            fillData(this.blog, '');
+          },
+          deleteBlog(blog) {
+            blogsRef.child(blog.id).remove();
+          },
+          editBlog(blog) {
+            this.editingBlog = blog;
+            fillData(this.blog, blog);
+          },
+          cancelEditing() {
+            this.editingBlog = null;
+            fillData(this.blog, '');
+          },
+          updateBlog() {
+            blogsRef
+              .child(this.editingBlog.id)
+              .update({ ...this.blog, updated_at: Date.now() });
+            this.cancelEditing();
+          },
+        },
+
+        created() {
+          tinymce.init({
+            selector: 'textarea',
+            plugins:
+              'a11ychecker advcode casechange export formatpainter linkchecker autolink lists checklist media mediaembed pageembed powerpaste table advtable',
+            toolbar:
+              'undo redo | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | checklist | numlist bullist',
+          });
+          // value = snapshot.val() | key = snapshot.key
+          blogsRef.on('child_added', (snapshot) => {
+            this.blogs.push({
+              ...snapshot.val(),
+              created_at: formatDate(snapshot.val().created_at),
+              updated_at: formatDate(snapshot.val().updated_at),
+              id: snapshot.key,
+            });
+            nativeToast({
+              message: `New blog was added`,
+              type: 'success',
+            });
+          });
+          blogsRef.on('child_removed', (snapshot) => {
+            const deletedBlog = this.blogs.find(
+              (blog) => blog.id === snapshot.key,
+            );
+            const index = this.blogs.indexOf(deletedBlog);
+            this.blogs.splice(index, 1);
+            nativeToast({
+              message: `Blog was deleted`,
+              type: 'warning',
+            });
+          });
+          blogsRef.on('child_changed', (snapshot) => {
+            const updatedBlog = this.blogs.find(
+              (blog) => blog.id === snapshot.key,
+            );
+            fillData(updatedBlog, snapshot.val());
+            nativeToast({
+              message: `Blog was changed`,
+              type: 'info',
+            });
+          });
+        },
+      });
+    </script>
+  </body>
+</html>

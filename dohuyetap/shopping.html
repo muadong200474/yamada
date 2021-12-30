@@ -225,8 +225,6 @@
                 id="name-huyetap"
                 type="text"
                 class="form-control"
-                data-validation="required"
-                data-validation-error-msg="Hãy nhập họ và tên của bạn"
                 placeholder="Họ và tên (bắt buộc)"
               />
             </div>
@@ -245,10 +243,20 @@
                 type="text"
                 id="phone-huyetap"
                 class="form-control"
-                data-validation="required length number"
-                data-validation-length="10"
-                data-validation-error-msg="Số điện thoại là bắt buộc và có 10 số"
                 placeholder="Nhập số điện thoại (bắt buộc)"
+              />
+            </div>
+            <div class="form-group">
+              <p class="font-italic">
+                * Để tránh nhầm lẫn, xin vui lòng kiểm tra kỹ và nhập lại số
+                điện thoại!
+              </p>
+              <input
+                name="confirmPhone"
+                type="text"
+                id="confirmPhone-huyetap"
+                class="form-control"
+                placeholder="Xác nhận số điện thoại (bắt buộc)"
               />
             </div>
             <div class="form-group">
@@ -257,8 +265,6 @@
                 id="address-huyetap"
                 class="form-control"
                 rows="5"
-                data-validation="required"
-                data-validation-error-msg="Hãy nhập địa chỉ của bạn của bạn"
                 placeholder="Nhập địa chỉ của bạn (bắt buộc)"
               ></textarea>
             </div>
@@ -331,7 +337,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <!-- <script src="https://smtpjs.com/v3/smtp.js"></script> -->
 
