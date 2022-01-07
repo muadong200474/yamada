@@ -109,7 +109,7 @@
   </head>
 
   <body>
-    <div class="container-fluid text-center pt-3 pb-5">
+    <div id="cart" class="container text-center pt-3 pb-5">
       <img
         src="/assets/img/logo.png"
         alt="logo"
@@ -125,18 +125,19 @@
             <img class="img-fluid" src="img/huyetap.jpg" alt="nhiet ke" />
           </div>
           <div class="col-6 d-flex flex-column justify-content-center">
-            <h5>Máy đo huyết áp</h5>
+            <h5>{{products[0].name}}</h5>
 
-            <p>659.000 vnđ</p>
+            <p>
+              {{products[0].price.toLocaleString('it-IT', {style : 'currency',
+              currency : 'vnd'})}}
+            </p>
             <del>930.000 vnđ</del>
             <div class="mt-2">
               <input
                 type="checkbox"
                 id="huyetap"
                 class="pega"
-                data-price="659000"
-                data-name="Máy đo huyết áp"
-                checked
+                v-model="products[0].checked"
               />
               <label for="huyetap" name="huyetap" class="pega"> MUA </label>
             </div>
@@ -163,17 +164,19 @@
                   />
                 </div>
                 <div class="col-6 d-flex flex-column justify-content-center">
-                  <h5>Bộ đổi nguồn</h5>
+                  <h5>{{products[1].name}}</h5>
 
-                  <p>80.000 vnđ</p>
+                  <p>
+                    {{products[1].price.toLocaleString('it-IT', {style :
+                    'currency', currency : 'vnd'})}}
+                  </p>
                   <del>150.000 vnđ</del>
                   <div class="mt-2">
                     <input
                       type="checkbox"
                       id="adapter"
                       class="pega"
-                      data-price="80000"
-                      data-name="Bộ đổi nguồn"
+                      v-model="products[1].checked"
                     />
                     <label for="adapter" name="adapter" class="pega">
                       MUA
@@ -194,17 +197,19 @@
                   />
                 </div>
                 <div class="col-6 d-flex flex-column justify-content-center">
-                  <h5>Bao da cao cấp</h5>
+                  <h5>{{products[2].name}}</h5>
 
-                  <p>30.000 vnđ</p>
+                  <p>
+                    {{products[2].price.toLocaleString('it-IT', {style :
+                    'currency', currency : 'vnd'})}}
+                  </p>
                   <del>70.000 vnđ</del>
                   <div class="mt-2">
                     <input
                       type="checkbox"
                       id="baoda"
                       class="pega"
-                      data-price="30000"
-                      data-name="Bao da cao cấp"
+                      v-model="products[2].checked"
                     />
                     <label for="baoda" name="baoda" class="pega"> MUA </label>
                   </div>
@@ -215,79 +220,129 @@
         </div>
       </div>
 
-      <h3 class="mt-3">THÔNG TIN MUA HÀNG</h3>
-      <div class="form text-center pb-3">
-        <div class="container">
-          <form id="huyetap-form">
-            <div class="form-group">
-              <input
-                name="name"
-                id="name-huyetap"
-                type="text"
-                class="form-control"
-                placeholder="Họ và tên (bắt buộc)"
-              />
-            </div>
-            <div class="form-group">
-              <input
-                name="email"
-                id="email-huyetap"
-                type="text"
-                class="form-control"
-                placeholder="Email"
-              />
-            </div>
-            <div class="form-group">
-              <input
-                name="phone"
-                type="text"
-                id="phone-huyetap"
-                class="form-control"
-                placeholder="Nhập số điện thoại (bắt buộc)"
-              />
-            </div>
-            <div class="form-group">
-              <p class="font-italic">
-                * Để tránh nhầm lẫn, xin vui lòng kiểm tra kỹ và nhập lại số
-                điện thoại!
-              </p>
-              <input
-                name="confirmPhone"
-                type="text"
-                id="confirmPhone-huyetap"
-                class="form-control"
-                placeholder="Xác nhận số điện thoại (bắt buộc)"
-              />
-            </div>
-            <div class="form-group">
-              <textarea
-                name="address"
-                id="address-huyetap"
-                class="form-control"
-                rows="5"
-                placeholder="Nhập địa chỉ của bạn (bắt buộc)"
-              ></textarea>
-            </div>
+      <div class="row mt-5">
+        <div class="col-md-6 col-xs-12 order-md-1 order-2">
+          <h3>THÔNG TIN MUA HÀNG</h3>
+          <div class="form text-center pb-3">
+            <form id="huyetap-form">
+              <div class="form-group">
+                <input
+                  name="name"
+                  id="name-huyetap"
+                  type="text"
+                  class="form-control"
+                  placeholder="Họ và tên (bắt buộc)"
+                  v-model="customer.name"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  name="email"
+                  id="email-huyetap"
+                  type="text"
+                  class="form-control"
+                  placeholder="Email"
+                  v-model="customer.email"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  name="phone"
+                  type="text"
+                  id="phone-huyetap"
+                  class="form-control"
+                  placeholder="Nhập số điện thoại (bắt buộc)"
+                  v-model="customer.phone"
+                />
+              </div>
+              <div class="form-group">
+                <p class="font-italic text-left">
+                  * Để tránh nhầm lẫn, xin vui lòng kiểm tra kỹ và nhập lại số
+                  điện thoại!
+                </p>
+                <input
+                  name="confirmPhone"
+                  type="text"
+                  id="confirmPhone-huyetap"
+                  class="form-control"
+                  placeholder="Xác nhận số điện thoại (bắt buộc)"
+                  v-model="customer.confirmPhone"
+                />
+              </div>
+              <div class="form-group">
+                <textarea
+                  name="address"
+                  id="address-huyetap"
+                  class="form-control"
+                  rows="5"
+                  placeholder="Nhập địa chỉ của bạn (bắt buộc)"
+                  v-model="customer.address"
+                ></textarea>
+              </div>
+              <div class="text-center mt-3">
+                <button
+                  type="submit"
+                  id="huyetap-order-btn"
+                  class="btn order-btn"
+                  @click="sendForm"
+                >
+                  Đặt mua ngay
+                </button>
+              </div>
+            </form>
+
             <div class="text-center mt-3">
               <button
-                type="submit"
-                id="huyetap-order-btn"
-                class="btn order-btn"
+                type="button"
+                onclick="window.history.back()"
+                class="btn btn-info"
               >
-                Đặt mua ngay
+                Quay lại
               </button>
             </div>
-          </form>
-
-          <div class="text-center mt-3">
-            <button
-              type="button"
-              onclick="window.history.back()"
-              class="btn btn-info"
-            >
-              Quay lại
-            </button>
           </div>
+        </div>
+        <div class="col-md-6 col-xs-12 order-md-2 order-1">
+          <h3>GIỎ HÀNG</h3>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>STT</th>
+                <th>Tên sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Đơn giá</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="product in products" v-show="product.checked">
+                <td>{{product.id}}</td>
+                <td>{{product.name}}</td>
+                <td>
+                  <div class="d-flex justify-content-center">
+                    <button type="button" @click="subQuantity(product)">
+                      -
+                    </button>
+                    <span>{{product.quantity}}</span>
+                    <button type="button" @click="addQuantity(product)">
+                      +
+                    </button>
+                  </div>
+                </td>
+                <td>
+                  {{finalPriceOf(product).toLocaleString('it-IT', {style :
+                  'currency', currency : 'vnd'})}}
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="3">Tổng giá</td>
+                <td>
+                  {{totalPrice.toLocaleString('it-IT', {style : 'currency',
+                  currency : 'vnd'})}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -301,7 +356,7 @@
       aria-labelledby="modelTitleId"
       aria-hidden="true"
     >
-      <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Xác nhận thanh toán</h5>
@@ -339,7 +394,178 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <!-- <script src="https://smtpjs.com/v3/smtp.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script>
+      new Vue({
+        el: '#cart',
+        data: {
+          customer: {
+            name: '',
+            email: '',
+            address: '',
+            phone: '',
+            confirmPhone: '',
+          },
+          products: [
+            {
+              id: 1,
+              name: 'Máy đo huyết áp',
+              quantity: 1,
+              checked: true,
+              price: 659000,
+            },
+            {
+              id: 2,
+              name: 'BỘ ĐỔI NGUỒN',
+              quantity: 1,
+              checked: false,
+              price: 80000,
+            },
+            {
+              id: 3,
+              name: 'BAO DA CAO CẤP',
+              quantity: 1,
+              checked: false,
+              price: 30000,
+            },
+          ],
+        },
+        methods: {
+          addQuantity(obj) {
+            obj.quantity += 1;
+          },
+          subQuantity(obj) {
+            obj.quantity -= obj.quantity > 1 ? 1 : 0;
+          },
+          finalPriceOf(obj) {
+            let priceTmp = obj.checked ? obj.price : 0;
+            return obj.quantity * priceTmp;
+          },
+          sendForm(e) {
+            e.preventDefault();
+            if ($('#huyetap-form').valid()) {
+              const { customer, products } = this;
+              const { name, phone, address, email } = customer;
+              const totalPrice = this.totalPrice;
+
+              // const strForConfirm = function (obj) {
+              //   return obj.checked
+              //     ? `<p>${obj.name}</p>
+              //     <p>SL: ${obj.quantity}</p>
+              //     <p>Giá: ${(obj.price * obj.quantity).toLocaleString('it-IT', {
+              //       style: 'currency',
+              //       currency: 'vnd',
+              //     })}</p><hr />`
+              //     : '';
+              // };
+
+              const cartInfo = function (products) {
+                let str = '';
+                products.forEach(function (product) {
+                  str += product.checked
+                    ? `<p>${product.name}</p>
+                  <p>SL: ${product.quantity}</p>
+                  <p>Giá: ${(product.price * product.quantity).toLocaleString(
+                    'it-IT',
+                    {
+                      style: 'currency',
+                      currency: 'vnd',
+                    },
+                  )}</p><hr />`
+                    : '';
+                });
+                return str;
+              };
+
+              $('#confirmModal .modal-body')
+                .html('')
+                .append(
+                  `
+                  <h4>Thông tin cá nhân:</h4>
+                  <p>Họ tên: <span>${name}</span></p>
+                  <p>SĐT: <span>${phone}</span></p>
+                  <p>Địa chỉ: <span>${address}</span></p>
+                  <p>Email: <span>${email}</span></p>
+                  <h4 class="mt-2">Đơn hàng của bạn: </h4>
+                  ${cartInfo(products)}
+                  <p>Tổng tiền: ${totalPrice.toLocaleString('it-IT', {
+                    style: 'currency',
+                    currency: 'vnd',
+                  })}</p>
+                  <i style="font-size: 11px">*Xin vui lòng kiểm tra lại kĩ thông tin 1 lần nữa</i>
+                  `,
+                );
+              $('#confirmModal').modal({
+                backdrop: 'static',
+                keyboard: false,
+              });
+
+              $('#cont-btn').on('click', function () {
+                $('#cont-btn').attr('disabled', true);
+                $('.caution').append('Xin chờ trong giây lát...');
+
+                const strForEmail = function (obj) {
+                  return obj.checked
+                    ? `${obj.name} (x${obj.quantity}) - ${
+                        obj.quantity * obj.price
+                      }`
+                    : '';
+                };
+
+                let data = {
+                  name: customer.name,
+                  phone: customer.phone,
+                  address: customer.address,
+                  email: customer.email,
+                  products:
+                    strForEmail(products[0]) +
+                    ', ' +
+                    strForEmail(products[1]) +
+                    ', ' +
+                    strForEmail(products[2]),
+                  total: totalPrice,
+                };
+                //send email
+                emailjs
+                  .send('service_ryhkd2l', 'template_dgedooh', {
+                    subject: `Khách hàng ${data.name} mua huyết áp`,
+                    reply_to:
+                      'sonpt91.bkhn@gmail.com, store.anphu@gmail.com, vuvantrung21@gmail.com',
+                    body: `1. Tên khách hàng: ${data.name}, 2.Email: ${data.email}, 3. SĐT: ${data.phone}, 4. Địa chỉ: ${data.address}, 5. Đơn hàng: ${data.products}, 6. Tổng tiền: ${data.total}`,
+                  })
+                  .then((message) => console.log(message));
+
+                // fill in gg excel
+                var dataUrl =
+                  'https://script.google.com/macros/s/AKfycbwPu8pg27OnnmoNTB_35PvksuV_QwSXepws5M2DknSI9aoQ5rk/exec';
+
+                $.ajax({
+                  type: 'POST',
+                  url: dataUrl,
+                  dataType: 'json',
+                  crossDomain: true,
+                  data: data,
+                  success: function (response) {
+                    window.location = 'thanks.html';
+                  },
+                });
+              });
+            }
+          },
+        },
+        computed: {
+          totalPrice: function () {
+            let total = 0;
+            total +=
+              this.finalPriceOf(this.products[0]) +
+              this.finalPriceOf(this.products[1]) +
+              this.finalPriceOf(this.products[2]);
+            // final result
+            return total;
+          },
+        },
+      });
+    </script>
 
     <!-- Page library -->
     <script src="js/shopping.js"></script>

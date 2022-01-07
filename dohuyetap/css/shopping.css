@@ -40,7 +40,10 @@ a:hover {
 a a:focus {
   outline: none;
 }
-
+button {
+  border: 0;
+  margin: 0 10px;
+}
 p {
   font-weight: 400;
   font-family: 'Montserrat', sans-serif;
@@ -100,7 +103,7 @@ ol li {
 /* SITE */
 .product-box {
   background: #fff;
-  border-radius: 2px;
+  border-radius: 10px;
   display: inline-block;
   position: relative;
   padding: 10px;
@@ -117,11 +120,6 @@ ol li {
 }
 .product-box del {
   color: grey;
-}
-
-.form-control {
-  width: 70%;
-  margin: 0 auto;
 }
 .error {
   color: red;
