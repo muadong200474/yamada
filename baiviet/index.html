@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="author" content="LamPT" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <meta property="og:url" content="https://yamadacare.vn/baiviet/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Bài viết của Yamada" />
+    <meta property="og:image" content="/assets/img/logo.png" />
+    <meta property="og:description" content="" />
+
+    <title>Bài viết của Yamada</title>
+
+    <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.ico" />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="baiviet.css" />
+  </head>
+  <body>
+    <div class="mt-4 text-center">
+      <img src="/assets/img/logo.png" alt="logo" width="200px" class="logo" />
+    </div>
+
+    <h1>Các bài chia sẻ của Yamada</h1>
+    <div class="site__wrapper" id="blog-list">
+      <div class="grid" v-for="blog in blogs">
+        <div class="card">
+          <div class="card__image">
+            <a :href="'/baiviet/chitiet.html?id='+blog.id"
+              ><img v-bind:src="blog.image" alt="blog-image"
+            /></a>
+
+            <div class="card__overlay card__overlay--indigo">
+              <div class="card__overlay-content">
+                <a
+                  :href="'/baiviet/chitiet.html?id='+blog.id"
+                  class="card__title"
+                >
+                  {{blog.title}}
+                </a>
+
+                <ul class="card__meta">
+                  <li><i class="fa fa-tag"></i> Chia sẻ</li>
+                  <li><i class="fa fa-clock-o"></i> {{blog.updated_at}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- @end site__wrapper -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script>
+      (function () {
+        var $grid = $('.grid').imagesLoaded(function () {
+          $('.site__wrapper').masonry({
+            itemSelector: '.grid',
+          });
+        });
+      })();
+    </script>
+    <script type="text/javascript">
+      const config = {
+        apiKey: 'AIzaSyBwMUDkYK8pDSohRNssV49rJby3i0OH-G8',
+        authDomain: 'yamada-332502.firebaseapp.com',
+        projectId: 'yamada-332502',
+        databaseURL: 'https://yamada-332502-default-rtdb.firebaseio.com/',
+        storageBucket: 'yamada-332502.appspot.com',
+        messagingSenderId: '47474644175',
+        appId: '1:47474644175:web:098d5bb201a7a9d4c113ba',
+      };
+      firebase.initializeApp(config);
+
+      const blogsRef = firebase.database().ref('blogs');
+
+      new Vue({
+        el: '#blog-list',
+
+        data: {
+          blogs: [],
+        },
+
+        created() {
+          // value = snapshot.val() | key = snapshot.key
+          blogsRef.on('child_added', (snapshot) => {
+            this.blogs.push({
+              ...snapshot.val(),
+              id: snapshot.key,
+            });
+          });
+        },
+      });
+    </script>
+  </body>
+</html>

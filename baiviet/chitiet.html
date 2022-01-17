@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết bài viết</title>
+    <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.ico" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+    /> -->
+    <style>
+      .gradient {
+        background-image: linear-gradient(
+          to bottom,
+          rgba(243, 244, 246, 0.1),
+          rgba(0, 0, 0, 0.8)
+        );
+      }
+
+      .group:hover .group-hover\:translate-y-0 {
+        transform: translateY(0);
+      }
+
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background-color: #fff;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background-color: #4b5563;
+        border-radius: 10px;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #4b5563;
+      }
+
+      ::selection {
+        background: rgb(107 114 128); /* WebKit/Blink Browsers */
+      }
+      ::-moz-selection {
+        background: rgb(107 114 128); /* Gecko Browsers */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="blog-detail">
+      <div class="min-h-screen">
+        <div class="max-w-screen-xl mx-auto px-4 py-16">
+          <div class="flex flex-col flex-wrap md:flex-row md:-mx-3">
+            <main class="w-full lg:w-3/4 mb-8 lg:mb-0">
+              <article class="md:mx-3 bg-gray-900 shadow-lg rounded-lg">
+                <img :src="blog.image" class="w-full" />
+                <div class="p-8 bg-white">
+                  <h1 class="font-bold text-4xl md:text-5xl pb-8 leading-tight">
+                    {{blog.title}}
+                  </h1>
+                  <div
+                    class="bg-gray-200 mb-6 inline-block py-1 px-2 italic text-sm"
+                  >
+                    Đăng ngày:
+                    <time>{{blog.updated_at}}</time>
+                  </div>
+                  <div class="leading-relaxed">
+                    <div v-html="blog.content"></div>
+                    <div class="pb-12">
+                      Categories:
+                      <span
+                        class="bg-gray-800 py-0.5 px-2 text-sm rounded-md transition hover:bg-gray-600 text-white"
+                      >
+                        Chia sẻ
+                      </span>
+                    </div>
+                    <div
+                      class="font-bold text-xl uppercase tracking-wide text-center pb-1.5"
+                    >
+                      <a href="/baiviet/">Quay về</a>
+                    </div>
+                    <div class="mx-auto w-16 h-px bg-gray-500 mb-4"></div>
+                  </div>
+                </div>
+              </article>
+            </main>
+            <aside class="w-full lg:w-1/4">
+              <div class="md:mx-3 sticky top-6" id="__FPSC_ID_1_1641419081408">
+                <div v-for="b in blogs">
+                  <a
+                    :href="'/baiviet/chitiet.html?id='+b.id"
+                    class="h-96 mb-6 block group relative overflow-hidden shadow-md"
+                  >
+                    <img
+                      :src="b.image"
+                      class="rouded-lg absolute z-0 object-cover w-full h-96"
+                    />
+                    <div
+                      class="rouded-lg absolute gradient transition duration-300 group-hover:bg-black group-hover:opacity-90 w-full h-96 z-100"
+                    ></div>
+                    <div
+                      class="rouded-lg absolute left-0 right-0 bottom-0 p-6 z-30 transform translate-y-1/2 transition duration-300 h-full group-hover:translate-y-0 delay-100"
+                    >
+                      <div class="rouded-lg h-1/2 relative">
+                        <div class="absolute bottom-0">
+                          <h2
+                            class="font-bold text-white leading-tight transition duration-300 text-xl pb-6 group-hover:underline"
+                          >
+                            {{b.title}}
+                          </h2>
+                        </div>
+                      </div>
+
+                      <button
+                        class="bg-white text-black text-sm px-3 py-1 font-semibold opacity-0 transition duration-300 group-hover:opacity-100 border-2 border-white focus:border-black focus:bg-gray-300"
+                      >
+                        Xem thêm
+                      </button>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+
+    <script type="text/javascript">
+      const config = {
+        apiKey: 'AIzaSyBwMUDkYK8pDSohRNssV49rJby3i0OH-G8',
+        authDomain: 'yamada-332502.firebaseapp.com',
+        projectId: 'yamada-332502',
+        databaseURL: 'https://yamada-332502-default-rtdb.firebaseio.com/',
+        storageBucket: 'yamada-332502.appspot.com',
+        messagingSenderId: '47474644175',
+        appId: '1:47474644175:web:098d5bb201a7a9d4c113ba',
+      };
+      firebase.initializeApp(config);
+
+      const blogRef = firebase
+        .database()
+        .ref('blogs/' + new URL(window.location.href).searchParams.get('id'));
+      const blogsRef = firebase.database().ref('blogs');
+
+      new Vue({
+        el: '#blog-detail',
+
+        data: {
+          blog: {},
+          blogs: [],
+        },
+
+        created() {
+          // value = snapshot.val() | key = snapshot.key
+          blogRef.once('value', (snapshot) => {
+            this.blog = snapshot.val();
+          });
+          blogsRef.on('child_added', (snapshot) => {
+            if (this.blogs.length < 5)
+              this.blogs.push({
+                ...snapshot.val(),
+                id: snapshot.key,
+              });
+          });
+        },
+      });
+    </script>
+  </body>
+</html>

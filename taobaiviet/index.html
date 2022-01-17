@@ -10,11 +10,7 @@
       rel="stylesheet"
       href="https://unpkg.com/native-toast@1.2.1/dist/native-toast.css"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-    <script src="https://unpkg.com/native-toast@1.2.1/dist/native-toast.js"></script>
-    <script src="https://cdn.tiny.cloud/1/7ogsdipvwc3r0pcu8mlxy16u53l4pd8j3me4uh4x7u810q4y/tinymce/5/tinymce.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue-mce@1.5.2/dist/vue-mce.web.js"></script>
+
     <style>
       .blog-content img {
         width: 100%;
@@ -60,12 +56,6 @@
               <div>{{ blog.updated_at }}</div>
             </div>
           </div>
-          <hr />
-          <!-- content -->
-          <div class="blog-content">
-            <div class="card-text" v-html="blog.content"></div>
-          </div>
-
           <!-- actions -->
           <div class="blog-action">
             <a @click.prevent="deleteBlog(blog)" href="#" class="card-link">
@@ -75,10 +65,20 @@
               edit
             </a>
           </div>
+          <hr />
+          <!-- content -->
+          <div class="blog-content position-relative">
+            <div class="card-text" v-html="blog.content"></div>
+          </div>
         </div>
       </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script src="https://unpkg.com/native-toast@1.2.1/dist/native-toast.js"></script>
+    <script src="https://cdn.tiny.cloud/1/7ogsdipvwc3r0pcu8mlxy16u53l4pd8j3me4uh4x7u810q4y/tinymce/5/tinymce.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-mce@1.5.2/dist/vue-mce.web.js"></script>
     <script type="text/javascript">
       const config = {
         apiKey: 'AIzaSyBwMUDkYK8pDSohRNssV49rJby3i0OH-G8',
@@ -103,15 +103,6 @@
             blogs[key] = '';
           });
         }
-      };
-
-      const formatDate = (UNIX_timestamp) => {
-        var a = new Date(UNIX_timestamp);
-        var year = a.getFullYear();
-        var month = a.getMonth();
-        var date = a.getDate();
-
-        return date + '/' + month + '/' + year;
       };
 
       const tinyMCEConfig = {
@@ -144,8 +135,16 @@
           storeBlog() {
             blogsRef.push({
               ...this.blog,
-              created_at: Date.now(),
-              updated_at: Date.now(),
+              created_at: new Date().toLocaleDateString('vi-VN', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+              }),
+              updated_at: new Date().toLocaleDateString('vi-VN', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+              }),
             });
             fillData(this.blog, '');
           },
@@ -161,9 +160,14 @@
             fillData(this.blog, '');
           },
           updateBlog() {
-            blogsRef
-              .child(this.editingBlog.id)
-              .update({ ...this.blog, updated_at: Date.now() });
+            blogsRef.child(this.editingBlog.id).update({
+              ...this.blog,
+              updated_at: new Date().toLocaleDateString('vi-VN', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+              }),
+            });
             this.cancelEditing();
           },
         },
@@ -180,8 +184,6 @@
           blogsRef.on('child_added', (snapshot) => {
             this.blogs.push({
               ...snapshot.val(),
-              created_at: formatDate(snapshot.val().created_at),
-              updated_at: formatDate(snapshot.val().updated_at),
               id: snapshot.key,
             });
             nativeToast({
