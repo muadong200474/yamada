@@ -23,11 +23,11 @@ $(function () {
   var now = new Date();
   var prev = new Date(Date.now() - 24 * 60 * 60 * 1000);
   $('.days').html(
-    `${prev.getFullYear()}/${
+    `${prev.getDate()}/${
       prev.getMonth() + 1
-    }/${prev.getDate()} - ${now.getFullYear()}/${
+    }/${prev.getFullYear()} - ${now.getDate()}/${
       now.getMonth() + 1
-    }/${now.getDate()}`,
+    }/${now.getFullYear()}`,
   );
 
   /* Tien ich
