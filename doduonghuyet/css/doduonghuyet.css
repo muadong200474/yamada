@@ -306,15 +306,13 @@ header nav.fixed-top {
 /*       Customer
 /*==========================================*/
 .customer-section {
-  background-color: var(--text2);
-  color: #fff;
+  background-color: rgb(88, 88, 90);
   overflow: hidden;
 }
 .customer-section .customer-title {
-  font-size: 1.7rem;
+  color: #fff;
 }
 .customer-section img {
-  border: 1px solid rgb(0, 156, 210);
   border-radius: 10px;
 }
 .slick-slide {
