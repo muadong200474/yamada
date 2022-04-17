@@ -91,218 +91,230 @@
         Đặt mua ngay Máy đo đường huyết Yamada
       </h1>
 
-      <div class="mt-3 product-box">
-        <div class="row">
-          <div class="col-6">
-            <img
-              class="img-fluid"
-              src="image/may_do_duong_huyet_yamada.jpg"
-              alt="may do duong huyet"
-              width="200px"
-            />
-          </div>
-          <div class="col-6 d-flex flex-column justify-content-center">
-            <h2>{{machine.name}}</h2>
+      <div class="row">
+        <div class="col-md-6 col-12">
+          <div class="mt-3 product-box">
+            <div class="row">
+              <div class="col-6">
+                <img
+                  class="img-fluid"
+                  src="image/may_do_duong_huyet_yamada.jpg"
+                  alt="may do duong huyet"
+                  width="200px"
+                />
+              </div>
+              <div class="col-6 d-flex flex-column justify-content-center">
+                <h2>{{machine.name}}</h2>
 
-            <p>
-              {{machine.price.toLocaleString('it-IT', {style : 'currency',
-              currency : 'vnd'})}}
-            </p>
-            <del>649.000 vnd</del>
-            <div class="mt-2">
-              <input
-                type="checkbox"
-                id="duonghuyet"
-                class="pega"
-                v-model="machine.checked"
-              />
-              <label for="duonghuyet" name="duonghuyet" class="pega">
-                MUA
-              </label>
+                <p>
+                  {{machine.price.toLocaleString('it-IT', {style : 'currency',
+                  currency : 'vnd'})}}
+                </p>
+                <del>649.000 vnd</del>
+                <div class="mt-2">
+                  <input
+                    type="checkbox"
+                    id="duonghuyet"
+                    class="pega"
+                    v-model="machine.checked"
+                  />
+                  <label for="duonghuyet" name="duonghuyet" class="pega">
+                    MUA
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12">
+          <div class="mt-3 product-box">
+            <div class="row">
+              <div class="col-6">
+                <img
+                  class="img-fluid"
+                  src="image/que_thu.jpg"
+                  alt="nhiet ke"
+                  width="200px"
+                />
+              </div>
+              <div class="col-6 d-flex flex-column justify-content-center">
+                <h2>{{combo.name}}</h2>
+
+                <p>
+                  {{combo.displayPrice.toLocaleString('it-IT', {style :
+                  'currency', currency : 'vnd'})}}
+                </p>
+                <p class="sale">
+                  (Mua kèm máy huyết áp giá chỉ còn 99.000 vnd)
+                </p>
+                <div class="mt-2">
+                  <input
+                    type="checkbox"
+                    id="adapter"
+                    class="pega"
+                    v-model="combo.checked"
+                  />
+                  <label for="adapter" name="adapter" class="pega"> MUA </label>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="mt-3 product-box">
-        <div class="row">
-          <div class="col-6">
-            <img
-              class="img-fluid"
-              src="image/que_thu.jpg"
-              alt="nhiet ke"
-              width="200px"
-            />
-          </div>
-          <div class="col-6 d-flex flex-column justify-content-center">
-            <h2>{{combo.name}}</h2>
+      <div class="row mt-5">
+        <div class="col-md-6 col-xs-12 order-md-1 order-2">
+          <h3 class="mt-5">THÔNG TIN MUA HÀNG</h3>
+          <div class="form text-center pb-3">
+            <form id="duonghuyet-form">
+              <div class="form-group">
+                <input
+                  name="name"
+                  id="name-duonghuyet"
+                  type="text"
+                  class="form-control"
+                  placeholder="Họ và tên (bắt buộc)"
+                  v-model="name"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  name="email"
+                  id="email-duonghuyet"
+                  type="text"
+                  class="form-control"
+                  placeholder="Email"
+                  v-model="email"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  name="phone"
+                  type="text"
+                  id="phone-duonghuyet"
+                  class="form-control"
+                  placeholder="Nhập số điện thoại (bắt buộc)"
+                  v-model="phone"
+                />
+              </div>
+              <div class="form-group">
+                <p class="font-italic text-left">
+                  * Để tránh nhầm lẫn, xin vui lòng kiểm tra kỹ và nhập lại số
+                  điện thoại!
+                </p>
+                <input
+                  name="confirmPhone"
+                  type="text"
+                  id="confirmPhone-duonghuyet"
+                  class="form-control"
+                  placeholder="Xác nhận số điện thoại (bắt buộc)"
+                  v-model="confirmPhone"
+                />
+              </div>
+              <div class="form-group">
+                <textarea
+                  name="address"
+                  id="address-duonghuyet"
+                  class="form-control"
+                  rows="5"
+                  placeholder="Nhập địa chỉ của bạn (bắt buộc)"
+                  v-model="address"
+                ></textarea>
+              </div>
+              <div class="text-center mt-3">
+                <button
+                  type="submit"
+                  id="duonghuyet-order-btn"
+                  class="btn order-btn"
+                  @click="sendForm"
+                >
+                  Đặt mua ngay
+                </button>
+              </div>
+            </form>
 
-            <p>
-              {{combo.displayPrice.toLocaleString('it-IT', {style : 'currency',
-              currency : 'vnd'})}}
-            </p>
-            <p class="sale">(Mua kèm máy huyết áp giá chỉ còn 99.000 vnd)</p>
-            <div class="mt-2">
-              <input
-                type="checkbox"
-                id="adapter"
-                class="pega"
-                v-model="combo.checked"
-              />
-              <label for="adapter" name="adapter" class="pega"> MUA </label>
+            <div class="text-center mt-3">
+              <button
+                type="button"
+                onclick="window.history.back()"
+                class="btn btn-info"
+              >
+                Quay lại
+              </button>
             </div>
           </div>
         </div>
-      </div>
-
-      <h3 class="mt-5">GIỎ HÀNG</h3>
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>STT</th>
-            <th>Tên sản phẩm</th>
-            <th>Số lượng</th>
-            <th>Đơn giá</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-if="machine.checked">
-            <td>{{machine.id}}</td>
-            <td>{{machine.name}}</td>
-            <td>
-              <div class="d-flex justify-content-center">
-                <button
-                  type="button"
-                  @click="setMachineQuantity(machine.quantity - 1)"
-                >
-                  -
-                </button>
-                <span>{{machine.quantity}}</span>
-                <button
-                  type="button"
-                  @click="setMachineQuantity(machine.quantity + 1)"
-                >
-                  +
-                </button>
-              </div>
-            </td>
-            <td>
-              {{(machine.price * machine.quantity).toLocaleString('it-IT',
-              {style : 'currency', currency : 'vnd'})}}
-            </td>
-          </tr>
-          <tr v-if="combo.checked">
-            <td>{{combo.id}}</td>
-            <td>{{combo.name}}</td>
-            <td>
-              <div class="d-flex justify-content-center">
-                <button
-                  type="button"
-                  @click="setComboQuantity(combo.quantity - 1)"
-                >
-                  -
-                </button>
-                <span>{{combo.quantity}}</span>
-                <button
-                  type="button"
-                  @click="setComboQuantity(combo.quantity + 1)"
-                >
-                  +
-                </button>
-              </div>
-            </td>
-            <td>
-              {{(combo.quantity * comboPrice).toLocaleString('it-IT', {style :
-              'currency', currency : 'vnd'})}}
-            </td>
-          </tr>
-          <tr>
-            <td colspan="3">Tổng giá</td>
-            <td>
-              {{totalPrice.toLocaleString('it-IT', {style : 'currency', currency
-              : 'vnd'})}}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3 class="mt-5">THÔNG TIN MUA HÀNG</h3>
-      <div class="form text-center pb-3">
-        <form id="duonghuyet-form">
-          <div class="form-group">
-            <input
-              name="name"
-              id="name-duonghuyet"
-              type="text"
-              class="form-control"
-              placeholder="Họ và tên (bắt buộc)"
-              v-model="name"
-            />
-          </div>
-          <div class="form-group">
-            <input
-              name="email"
-              id="email-duonghuyet"
-              type="text"
-              class="form-control"
-              placeholder="Email"
-              v-model="email"
-            />
-          </div>
-          <div class="form-group">
-            <input
-              name="phone"
-              type="text"
-              id="phone-duonghuyet"
-              class="form-control"
-              placeholder="Nhập số điện thoại (bắt buộc)"
-              v-model="phone"
-            />
-          </div>
-          <div class="form-group">
-            <p class="font-italic text-left">
-              * Để tránh nhầm lẫn, xin vui lòng kiểm tra kỹ và nhập lại số điện
-              thoại!
-            </p>
-            <input
-              name="confirmPhone"
-              type="text"
-              id="confirmPhone-duonghuyet"
-              class="form-control"
-              placeholder="Xác nhận số điện thoại (bắt buộc)"
-              v-model="confirmPhone"
-            />
-          </div>
-          <div class="form-group">
-            <textarea
-              name="address"
-              id="address-duonghuyet"
-              class="form-control"
-              rows="5"
-              placeholder="Nhập địa chỉ của bạn (bắt buộc)"
-              v-model="address"
-            ></textarea>
-          </div>
-          <div class="text-center mt-3">
-            <button
-              type="submit"
-              id="duonghuyet-order-btn"
-              class="btn order-btn"
-              @click="sendForm"
-            >
-              Đặt mua ngay
-            </button>
-          </div>
-        </form>
-
-        <div class="text-center mt-3">
-          <button
-            type="button"
-            onclick="window.history.back()"
-            class="btn btn-info"
-          >
-            Quay lại
-          </button>
+        <div class="col-md-6 col-xs-12 order-md-2 order-1">
+          <h3 class="mt-5">GIỎ HÀNG</h3>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>STT</th>
+                <th>Tên sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Đơn giá</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-if="machine.checked">
+                <td>{{machine.id}}</td>
+                <td>{{machine.name}}</td>
+                <td>
+                  <div class="d-flex justify-content-center">
+                    <button
+                      type="button"
+                      @click="setMachineQuantity(machine.quantity - 1)"
+                    >
+                      -
+                    </button>
+                    <span>{{machine.quantity}}</span>
+                    <button
+                      type="button"
+                      @click="setMachineQuantity(machine.quantity + 1)"
+                    >
+                      +
+                    </button>
+                  </div>
+                </td>
+                <td>
+                  {{(machine.price * machine.quantity).toLocaleString('it-IT',
+                  {style : 'currency', currency : 'vnd'})}}
+                </td>
+              </tr>
+              <tr v-if="combo.checked">
+                <td>{{combo.id}}</td>
+                <td>{{combo.name}}</td>
+                <td>
+                  <div class="d-flex justify-content-center">
+                    <button
+                      type="button"
+                      @click="setComboQuantity(combo.quantity - 1)"
+                    >
+                      -
+                    </button>
+                    <span>{{combo.quantity}}</span>
+                    <button
+                      type="button"
+                      @click="setComboQuantity(combo.quantity + 1)"
+                    >
+                      +
+                    </button>
+                  </div>
+                </td>
+                <td>
+                  {{(combo.quantity * comboPrice).toLocaleString('it-IT', {style
+                  : 'currency', currency : 'vnd'})}}
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">Tổng giá</td>
+                <td>
+                  {{totalPrice.toLocaleString('it-IT', {style : 'currency',
+                  currency : 'vnd'})}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
