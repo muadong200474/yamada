@@ -53,6 +53,8 @@ $(function () {
     autoplay: true,
     autoplaySpeed: 3000,
     slidesToShow: 3,
+    centerMode: true,
+    centerPadding: '0',
     responsive: [
       {
         breakpoint: 769,

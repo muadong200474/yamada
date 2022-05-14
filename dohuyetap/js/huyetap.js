@@ -3,12 +3,8 @@ $(function () {
   $(document).scroll(function () {
     if ($(this).scrollTop() > 260) {
       $('nav').addClass('fixed-top');
-      $('nav').css('background-color', '#fff');
-      $('nav').css('box-shadow', 'grey 0px 1px 5px');
     } else {
       $('nav').removeClass('fixed-top');
-      $('nav').css('background-color', 'transparent');
-      $('nav').css('box-shadow', 'none');
     }
   });
 });
@@ -57,20 +53,13 @@ $(function () {
     autoplay: true,
     autoplaySpeed: 3000,
     slidesToShow: 3,
+    centerMode: true,
+    centerPadding: '0',
     responsive: [
       {
         breakpoint: 769,
         settings: {
-          arrows: false,
           slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          arrows: false,
-          slidesToShow: 1,
           slidesToScroll: 1,
         },
       },

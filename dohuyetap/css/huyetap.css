@@ -12,7 +12,7 @@ body {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   overflow-x: hidden;
-  max-width: 1140px;
+  max-width: 768px;
   margin: 0 auto;
 }
 
@@ -141,6 +141,10 @@ COMMON
 }
 .fixed-top {
   animation: smoothScroll 0.7s forwards;
+  box-shadow: 0 0 30px rgb(0 0 0 / 10%);
+  background-color: #fff;
+  max-width: 768px;
+  margin: 0 auto;
 }
 @keyframes smoothScroll {
   0% {
@@ -184,14 +188,8 @@ TOAST
 /*========================================
 HEADER
 ========================================*/
-nav {
-  background-color: transparent;
-}
-nav .logo {
-  width: 140px;
-}
 .top-banner img {
-  border-radius: 10px;
+  border-radius: 5px;
 }
 @media (max-width: 426px) {
   .navbar {
@@ -227,7 +225,7 @@ PRICE BANNER
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 .banner .price {
   font-size: 1em;
@@ -279,7 +277,6 @@ VIDEO SECTION
   max-width: 100%;
   background: #000;
   margin: 5px;
-  border-radius: 10px;
 }
 .youtube-player iframe {
   position: absolute;
@@ -332,6 +329,12 @@ FUNCTION SECTION
   margin: 5px 0;
   vertical-align: center;
 }
+@media (max-width: 426px) {
+  .function-section .function-product-img {
+    width: 250px;
+  }
+}
+
 /* ==================================
 REALITY USING
 =====================================*/
@@ -384,7 +387,7 @@ km
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 .km .upto {
   font-size: 25px;
@@ -476,17 +479,83 @@ Dased section (camket + baohanh)
 /* ==================================
 CUSTOMER SECTION
 =====================================*/
-.customer-section img {
-  border: 1px solid rgb(0, 156, 210);
-  border-radius: 10px;
+.customer-section .slider-center img {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .slick-slide {
   margin: 0 10px;
 }
 .slick-list {
   margin: 0 -10px;
+  padding: 5px 0 !important;
 }
-
+.customer-section .testimonial .testimonial-box {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.customer-section .testimonial .profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
+}
+.customer-section .testimonial .profile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.customer-section .testimonial .profile {
+  display: flex;
+  align-items: center;
+}
+.customer-section .testimonial .name-user {
+  display: flex;
+  flex-direction: column;
+}
+.customer-section .testimonial .name-user strong {
+  color: #3d3d3d;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+.customer-section .testimonial .name-user span {
+  color: #979797;
+  font-size: 0.8rem;
+}
+.customer-section .testimonial .reviews {
+  color: #f9d71c;
+}
+.customer-section .testimonial .box-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.customer-section .testimonial .client-comment p {
+  font-size: 0.9rem;
+  color: #4b4b4b;
+}
+.customer-section .testimonial .client-comment .media {
+  position: relative;
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+}
+.customer-section .testimonial .client-comment .media .media-content {
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  margin-right: 10px;
+}
+.customer-section .testimonial .client-comment .media .media-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
 /* ==================================
 ORDER SECTION
 =====================================*/
