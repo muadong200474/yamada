@@ -59,16 +59,7 @@ $(function () {
       {
         breakpoint: 769,
         settings: {
-          arrows: false,
           slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          arrows: false,
-          slidesToShow: 1,
           slidesToScroll: 1,
         },
       },
@@ -116,11 +107,5 @@ $(function () {
 
   $('.close').on('click', function () {
     $('.toast').hide();
-  });
-
-  $('.warranty-btn').on('click', function (e) {
-    e.preventDefault();
-    var target = $('#warranty-section').offset().top - 100;
-    $('html, body').animate({ scrollTop: target }, 500);
   });
 });
