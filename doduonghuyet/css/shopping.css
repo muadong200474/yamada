@@ -29,10 +29,9 @@ h1 {
   font-size: 30px;
 }
 h2 {
-  text-transform: uppercase;
   font-weight: 500;
   margin-bottom: 10px;
-  font-size: 18px;
+  font-size: 22px;
 }
 a {
   -webkit-transition: all 0.2s linear;
