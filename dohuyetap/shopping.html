@@ -141,7 +141,7 @@
         </div>
       </div>
 
-      <h4 class="mt-3">Bạn có muốn thêm phụ kiện chính hãng?</h4>
+      <!-- <h4 class="mt-3">Bạn có muốn thêm phụ kiện chính hãng?</h4>
       <p>
         Các phụ kiện được thiết kế phù hợp hoàn toàn với thiết bị, vui lòng
         không sử dụng phụ kiện không rõ nguồn gốc.
@@ -171,12 +171,12 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <p style="max-width: 700px; margin: 10px auto 0">
         <i>
-          * Máy sử dụng pin đũa AAA, mỗi lần thay pin sẽ dùng được được khoảng
-          250 - 300 lần đo. Bộ đổi nguồn cắm điện trực tiếp phù hợp cho khách
-          làm nhà thuốc, phòng khám… có nhu cầu đo nhiều
+          * Trọn bộ sản phẩm bao gồm: Máy đo huyết áp điện tử Yamada, vòng bít
+          đeo tay, túi đựng, bộ đổi nguồn, 4 pin AAA, sách hướng dẫn sử dụng
+          bằng tiếng Việt, thẻ bảo hành.
         </i>
       </p>
 
@@ -547,9 +547,11 @@
                   address: customer.address,
                   email: customer.email,
                   products:
-                    strForEmail(products[0]) + ', ' + strForEmail(products[1]),
-                  // ', ' +
-                  // strForEmail(products[2]),
+                    strForEmail(products[0]) +
+                    ', ' +
+                    strForEmail(products[1]) +
+                    ', ' +
+                    strForEmail(products[2]),
                   total: totalPrice,
                 };
                 //send email
@@ -585,8 +587,8 @@
             let total = 0;
             total +=
               this.finalPriceOf(this.products[0]) +
-              this.finalPriceOf(this.products[1]);
-            // this.finalPriceOf(this.products[2]);
+              this.finalPriceOf(this.products[1]) +
+              this.finalPriceOf(this.products[2]);
             // final result
             return total;
           },

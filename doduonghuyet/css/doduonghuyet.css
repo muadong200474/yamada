@@ -44,9 +44,9 @@ h1 {
   font-size: 2rem;
   text-transform: uppercase;
   font-weight: 800;
-  background-color: rgb(80, 176, 227);
+  background: linear-gradient(-90deg, #fafafa, #fafaf2, #ebece9);
   padding: 20px 0 10px 0;
-  color: var(--light);
+  color: #202020;
   margin-bottom: 0;
 }
 .section-title {
