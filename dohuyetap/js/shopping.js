@@ -1,6 +1,5 @@
 $(function () {
-  var form = $('#huyetap-form');
-  form.validate({
+  $('form').validate({
     rules: {
       name: 'required',
       phone: {
@@ -14,7 +13,7 @@ $(function () {
         maxlength: 10,
         minlength: 10,
         digits: true,
-        equalTo: '#phone-huyetap',
+        equalTo: '#phone',
       },
       email: {
         email: true,
