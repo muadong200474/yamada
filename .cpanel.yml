@@ -1,0 +1,12 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home2/yamad427/public_html/test
+    - /bin/cp -R assets $DEPLOYPATH
+    - /bin/cp -R baiviet $DEPLOYPATH
+    - /bin/cp -R doduonghuyet $DEPLOYPATH
+    - /bin/cp -R dohuyetap $DEPLOYPATH
+    - /bin/cp -R hutsua $DEPLOYPATH
+    - /bin/cp -R nhietke $DEPLOYPATH
+    - /bin/cp -R taobaiviet $DEPLOYPATH
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp sitemap.xml $DEPLOYPATH
