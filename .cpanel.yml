@@ -1,6 +1,8 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=/home2/yamad427/public_html/test
+    - export DEPLOYPATH=/home2/yamad427/public_html/
+    - /bin/cp -R .vscode $DEPLOYPATH
+    - /bin/cp -R .well-known $DEPLOYPATH
     - /bin/cp -R assets $DEPLOYPATH
     - /bin/cp -R baiviet $DEPLOYPATH
     - /bin/cp -R doduonghuyet $DEPLOYPATH
@@ -8,5 +10,7 @@ deployment:
     - /bin/cp -R hutsua $DEPLOYPATH
     - /bin/cp -R nhietke $DEPLOYPATH
     - /bin/cp -R taobaiviet $DEPLOYPATH
+    - /bin/cp .htaccess $DEPLOYPATH
     - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp google10c778558150934d.html $DEPLOYPATH
     - /bin/cp sitemap.xml $DEPLOYPATH
