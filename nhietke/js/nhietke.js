@@ -93,7 +93,7 @@ $(function () {
   var dataURL =
     'https://script.google.com/macros/s/AKfycbw0B54kEYZEmWL3UZX6QaWgnYO1oPJFeGwZvmSf1XSK9xuARWU/exec';
 
-  var form = $('#order-form');
+  var form = $('form');
   form.validate({
     rules: {
       name: 'required',
@@ -146,24 +146,29 @@ $(function () {
         backdrop: 'static',
         keyboard: false,
       });
-
-      $('#cont-btn').on('click', function () {
-        $('#cont-btn').attr('disabled', true);
-        $('.caution').append('Xin chờ trong giây lát...');
-
-        let data = {
-          name,
-          phone,
-          address,
-          email,
-        };
-        sendEmail(data);
-
-        // fill in gg excel
-        data = $('form#order-form').serialize();
-        fillInForm(dataURL, data);
-      });
     }
+  });
+
+  $('#cont-btn').on('click', function () {
+    let name = $("input[name='name']").val();
+    let phone = $("input[name='phone']").val();
+    let address = $("textarea[name='note']").val();
+    let email = $("input[name='email']").val();
+
+    $('#cont-btn').attr('disabled', true);
+    $('.caution').append('Xin chờ trong giây lát...');
+
+    let data = {
+      name,
+      phone,
+      address,
+      email,
+    };
+    sendEmail(data);
+
+    // fill in gg excel
+    data = $('form').serialize();
+    fillInForm(dataURL, data);
   });
 
   /* Display message
