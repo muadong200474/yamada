@@ -79,282 +79,218 @@
   </head>
 
   <body>
-    <div id="cart" class="container text-center pt-3 pb-5">
-      <img
-        src="/assets/img/logo.png"
-        alt="logo"
-        class="img-fluid"
-        width="180px"
-      />
+    <div id="cart">
+      <div class="container text-center pt-3 pb-5">
+        <img
+          src="/assets/img/logo.png"
+          alt="logo"
+          class="img-fluid"
+          width="180px"
+        />
 
-      <h1 class="text-uppercase mt-3">
-        Đặt mua ngay Máy đo đường huyết Yamada
-      </h1>
+        <h1 class="text-uppercase mt-3">
+          Đặt mua ngay Máy đo đường huyết Yamada
+        </h1>
 
-      <div class="row">
-        <div class="col-md-6 col-12">
-          <div class="mt-3 product-box">
-            <div class="row">
-              <div class="col-6">
-                <img
-                  class="img-fluid"
-                  src="image/may_do_duong_huyet_yamada.jpg"
-                  alt="may do duong huyet"
-                  width="200px"
-                />
-              </div>
-              <div class="col-6 d-flex flex-column justify-content-center">
-                <h2>{{machine.name}}</h2>
-
-                <p>
-                  {{machine.price.toLocaleString('it-IT', {style : 'currency',
-                  currency : 'vnd'})}}
-                </p>
-                <del>649.000 vnd</del>
-                <div class="mt-2">
-                  <input
-                    type="checkbox"
-                    id="duonghuyet"
-                    class="pega"
-                    v-model="machine.checked"
+        <div class="row">
+          <div v-for="product in products" class="col-lg-6 col-12">
+            <div class="mt-3 product-box">
+              <div class="row">
+                <div class="col-6">
+                  <img
+                    class="img-fluid"
+                    :src="product.image"
+                    :alt="product.slug"
+                    width="200px"
                   />
-                  <label for="duonghuyet" name="duonghuyet" class="pega">
-                    MUA
-                  </label>
+                </div>
+                <div class="col-6 d-flex flex-column justify-content-center">
+                  <h2>{{product.name}}</h2>
+
+                  <p>{{convertToViCurrency(product.price)}}</p>
+                  <del v-if="product.type == 'main'">649.000 vnd</del>
+                  <p v-else class="sale">
+                    (Mua kèm máy huyết áp giá chỉ còn 99.000 vnd)
+                  </p>
+                  <div class="mt-2">
+                    <input
+                      type="checkbox"
+                      :id="product.slug"
+                      class="pega"
+                      v-model="product.checked"
+                    />
+                    <label
+                      :for="product.slug"
+                      :name="product.slug"
+                      class="pega"
+                    >
+                      MUA
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-12">
-          <div class="mt-3 product-box">
-            <div class="row">
-              <div class="col-6">
-                <img
-                  class="img-fluid"
-                  src="image/que_thu.jpg"
-                  alt="nhiet ke"
-                  width="200px"
-                />
-              </div>
-              <div class="col-6 d-flex flex-column justify-content-center">
-                <h2>{{combo.name}}</h2>
 
-                <p>
-                  {{combo.displayPrice.toLocaleString('it-IT', {style :
-                  'currency', currency : 'vnd'})}}
-                </p>
-                <p class="sale">
-                  (Mua kèm máy huyết áp giá chỉ còn 99.000 vnd)
-                </p>
-                <div class="mt-2">
+        <div class="row mt-5">
+          <div class="col-md-6 col-xs-12 order-md-1 order-2">
+            <h3 class="mt-5">THÔNG TIN MUA HÀNG</h3>
+            <div class="form text-center pb-3">
+              <form>
+                <div class="form-group">
                   <input
-                    type="checkbox"
-                    id="adapter"
-                    class="pega"
-                    v-model="combo.checked"
+                    name="name"
+                    type="text"
+                    class="form-control"
+                    placeholder="Họ và tên (bắt buộc)"
+                    v-model="name"
                   />
-                  <label for="adapter" name="adapter" class="pega"> MUA </label>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                <div class="form-group">
+                  <input
+                    name="email"
+                    type="text"
+                    class="form-control"
+                    placeholder="Email"
+                    v-model="email"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    name="phone"
+                    type="text"
+                    id="phone"
+                    class="form-control"
+                    placeholder="Nhập số điện thoại (bắt buộc)"
+                    v-model="phone"
+                  />
+                </div>
+                <div class="form-group">
+                  <p class="font-italic text-left">
+                    * Để tránh nhầm lẫn, xin vui lòng kiểm tra kỹ và nhập lại số
+                    điện thoại!
+                  </p>
+                  <input
+                    name="confirmPhone"
+                    type="text"
+                    class="form-control"
+                    placeholder="Xác nhận số điện thoại (bắt buộc)"
+                    v-model="confirmPhone"
+                  />
+                </div>
+                <div class="form-group">
+                  <textarea
+                    name="address"
+                    class="form-control"
+                    rows="5"
+                    placeholder="Nhập địa chỉ của bạn (bắt buộc)"
+                    v-model="address"
+                  ></textarea>
+                </div>
+                <div class="text-center mt-3">
+                  <button
+                    type="submit"
+                    class="btn order-btn"
+                    @click="checkForm"
+                  >
+                    Đặt mua ngay
+                  </button>
+                </div>
+              </form>
 
-      <div class="row mt-5">
-        <div class="col-md-6 col-xs-12 order-md-1 order-2">
-          <h3 class="mt-5">THÔNG TIN MUA HÀNG</h3>
-          <div class="form text-center pb-3">
-            <form id="duonghuyet-form">
-              <div class="form-group">
-                <input
-                  name="name"
-                  id="name-duonghuyet"
-                  type="text"
-                  class="form-control"
-                  placeholder="Họ và tên (bắt buộc)"
-                  v-model="name"
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  name="email"
-                  id="email-duonghuyet"
-                  type="text"
-                  class="form-control"
-                  placeholder="Email"
-                  v-model="email"
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  name="phone"
-                  type="text"
-                  id="phone-duonghuyet"
-                  class="form-control"
-                  placeholder="Nhập số điện thoại (bắt buộc)"
-                  v-model="phone"
-                />
-              </div>
-              <div class="form-group">
-                <p class="font-italic text-left">
-                  * Để tránh nhầm lẫn, xin vui lòng kiểm tra kỹ và nhập lại số
-                  điện thoại!
-                </p>
-                <input
-                  name="confirmPhone"
-                  type="text"
-                  id="confirmPhone-duonghuyet"
-                  class="form-control"
-                  placeholder="Xác nhận số điện thoại (bắt buộc)"
-                  v-model="confirmPhone"
-                />
-              </div>
-              <div class="form-group">
-                <textarea
-                  name="address"
-                  id="address-duonghuyet"
-                  class="form-control"
-                  rows="5"
-                  placeholder="Nhập địa chỉ của bạn (bắt buộc)"
-                  v-model="address"
-                ></textarea>
-              </div>
               <div class="text-center mt-3">
                 <button
-                  type="submit"
-                  id="duonghuyet-order-btn"
-                  class="btn order-btn"
-                  @click="sendForm"
+                  type="button"
+                  onclick="window.history.back()"
+                  class="btn btn-info"
                 >
-                  Đặt mua ngay
+                  Quay lại
                 </button>
               </div>
-            </form>
-
-            <div class="text-center mt-3">
-              <button
-                type="button"
-                onclick="window.history.back()"
-                class="btn btn-info"
-              >
-                Quay lại
-              </button>
             </div>
           </div>
-        </div>
-        <div class="col-md-6 col-xs-12 order-md-2 order-1">
-          <h3 class="mt-5">GIỎ HÀNG</h3>
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>STT</th>
-                <th>Tên sản phẩm</th>
-                <th>Số lượng</th>
-                <th>Đơn giá</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-if="machine.checked">
-                <td>{{machine.id}}</td>
-                <td>{{machine.name}}</td>
-                <td>
-                  <div class="d-flex justify-content-center">
-                    <button
-                      type="button"
-                      @click="setMachineQuantity(machine.quantity - 1)"
-                    >
-                      -
-                    </button>
-                    <span>{{machine.quantity}}</span>
-                    <button
-                      type="button"
-                      @click="setMachineQuantity(machine.quantity + 1)"
-                    >
-                      +
-                    </button>
-                  </div>
-                </td>
-                <td>
-                  {{(machine.price * machine.quantity).toLocaleString('it-IT',
-                  {style : 'currency', currency : 'vnd'})}}
-                </td>
-              </tr>
-              <tr v-if="combo.checked">
-                <td>{{combo.id}}</td>
-                <td>{{combo.name}}</td>
-                <td>
-                  <div class="d-flex justify-content-center">
-                    <button
-                      type="button"
-                      @click="setComboQuantity(combo.quantity - 1)"
-                    >
-                      -
-                    </button>
-                    <span>{{combo.quantity}}</span>
-                    <button
-                      type="button"
-                      @click="setComboQuantity(combo.quantity + 1)"
-                    >
-                      +
-                    </button>
-                  </div>
-                </td>
-                <td>
-                  {{(combo.quantity * comboPrice).toLocaleString('it-IT', {style
-                  : 'currency', currency : 'vnd'})}}
-                </td>
-              </tr>
-              <tr>
-                <td colspan="3">Tổng giá</td>
-                <td>
-                  {{totalPrice.toLocaleString('it-IT', {style : 'currency',
-                  currency : 'vnd'})}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="col-md-6 col-xs-12 order-md-2 order-1">
+            <h3 class="mt-5">GIỎ HÀNG</h3>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>Tên sản phẩm</th>
+                  <th>Số lượng</th>
+                  <th>Đơn giá</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="product in products" v-show="product.checked">
+                  <td>{{product.id}}</td>
+                  <td>{{product.name}}</td>
+                  <td>
+                    <div class="d-flex justify-content-center">
+                      <button type="button" @click="subQuantity(product)">
+                        -
+                      </button>
+                      <span>{{product.quantity}}</span>
+                      <button type="button" @click="addQuantity(product)">
+                        +
+                      </button>
+                    </div>
+                  </td>
+                  <td>{{convertToViCurrency(finalPriceOf(product))}}</td>
+                </tr>
+
+                <tr>
+                  <td colspan="3">Tổng giá</td>
+                  <td>{{convertToViCurrency(totalPrice)}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="confirmModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="modelTitleId"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Xác nhận thanh toán</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body"></div>
-          <div class="caution"></div>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="confirmModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="modelTitleId"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-md" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Xác nhận thanh toán</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body"></div>
+            <div class="caution"></div>
 
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Huỷ
-            </button>
-            <button type="button" class="btn btn-primary" id="cont-btn">
-              Tiếp tục
-            </button>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Huỷ
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="cont-btn"
+                @click="sendForm"
+              >
+                Tiếp tục
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -377,56 +313,81 @@
           address: '',
           phone: '',
           confirmPhone: '',
-          machine: {
-            id: 1,
-            name: 'Máy đo đường huyết Yamada (tặng kèm 10 que thử)',
-            quantity: 1,
-            checked: true,
-            price: 499000,
-          },
-          combo: {
-            id: 2,
-            name: 'Combo hộp 25 que + 25 kim',
-            quantity: 1,
-            checked: false,
-            displayPrice: 119000,
-          },
+          products: [
+            {
+              id: 1,
+              name: 'Máy đo đường huyết Yamada (tặng kèm 10 que thử)',
+              quantity: 1,
+              checked: true,
+              price: 499000,
+              type: 'main',
+              image: 'image/may_do_duong_huyet_yamada.jpg',
+              slug: 'duonghuyet',
+            },
+            {
+              id: 2,
+              name: 'Combo hộp 25 que + 25 kim',
+              quantity: 1,
+              checked: false,
+              price: 119000,
+              type: 'combo',
+              image: 'image/que_thu.jpg',
+              slug: 'quethu',
+            },
+          ],
         },
         methods: {
-          setMachineQuantity(value) {
-            this.machine.quantity = value > 1 ? value : 1;
+          addQuantity(product) {
+            product.quantity += 1;
           },
-          setComboQuantity(value) {
-            this.combo.quantity = value > 1 ? value : 1;
+          subQuantity(product) {
+            product.quantity -= product.quantity > 1 ? 1 : 0;
           },
-          sendForm(e) {
-            e.preventDefault();
-            if ($('#duonghuyet-form').valid()) {
-              const name = this.name;
-              const phone = this.phone;
-              const address = this.address;
-              const email = this.email;
-              const totalPrice = this.totalPrice;
-              const machine = this.machine;
-              const comboPrice = this.comboPrice;
-              const combo = this.combo;
+          finalPriceOf(product) {
+            let finalPrice = product.price;
 
-              const cartInfo = function (machine, combo, comboPrice) {
+            if (product.type == 'combo') {
+              let mainProduct = this.products.find((x) => x.type === 'main');
+              finalPrice = mainProduct.checked
+                ? finalPrice - 20000
+                : finalPrice;
+            }
+
+            return product.checked ? product.quantity * finalPrice : 0;
+          },
+          convertToViCurrency(price) {
+            return price.toLocaleString('it-IT', {
+              style: 'currency',
+              currency: 'vnd',
+            });
+          },
+          checkForm(e) {
+            e.preventDefault();
+            if ($('form').valid()) {
+              const {
+                name,
+                phone,
+                address,
+                email,
+                products,
+                totalPrice,
+                convertToViCurrency,
+                finalPriceOf,
+              } = this;
+
+              const cartInfoHTML = (products) => {
                 let str = '';
-                if (machine.checked)
-                  str += `<p>${machine.name}</p>
-                  <p>SL: ${machine.quantity}</p>
-                  <p>Giá: ${(machine.price * machine.quantity).toLocaleString(
-                    'it-IT',
-                    { style: 'currency', currency: 'vnd' },
-                  )}</p><hr />`;
-                if (combo.checked)
-                  str += `<p>${combo.name}</p>
-                  <p>SL: ${combo.quantity}</p>
-                  <p>Giá: ${(comboPrice * combo.quantity).toLocaleString(
-                    'it-IT',
-                    { style: 'currency', currency: 'vnd' },
-                  )}</p><hr />`;
+                products.forEach((product) => {
+                  str += product.checked
+                    ? `
+                      <p>${product.name}</p>
+                      <p>SL: ${product.quantity}</p>
+                      <p>
+                        Giá: ${convertToViCurrency(finalPriceOf(product))}
+                      </p><hr />
+                      `
+                    : '';
+                });
                 return str;
               };
 
@@ -434,88 +395,80 @@
                 .html('')
                 .append(
                   `
-                  <h4>Thông tin cá nhân:</h4>
-                  <p>Họ tên: <span>${name}</span></p>
-                  <p>SĐT: <span>${phone}</span></p>
-                  <p>Địa chỉ: <span>${address}</span></p>
-                  <p>Email: <span>${email}</span></p>
-                  <h4 class="mt-2">Đơn hàng của bạn: </h4>
-                  ${cartInfo(machine, combo, comboPrice)}
-                  <p>Tổng tiền: ${totalPrice.toLocaleString('it-IT', {
-                    style: 'currency',
-                    currency: 'vnd',
-                  })}</p>
-                  <i style="font-size: 11px">*Xin vui lòng kiểm tra lại kĩ thông tin 1 lần nữa</i>
-                  `,
+                    <h4>Thông tin cá nhân:</h4>
+                    <p>Họ tên: <span>${name}</span></p>
+                    <p>SĐT: <span>${phone}</span></p>
+                    <p>Địa chỉ: <span>${address}</span></p>
+                    <p>Email: <span>${email}</span></p>
+                    <h4 class="mt-2">Đơn hàng của bạn: </h4>
+                    ${cartInfoHTML(products)}
+                    <p>Tổng tiền: ${convertToViCurrency(totalPrice)}</p>
+                    <i style="font-size: 11px">*Xin vui lòng kiểm tra lại kĩ thông tin 1 lần nữa</i>
+                    `,
                 );
               $('#confirmModal').modal({
                 backdrop: 'static',
                 keyboard: false,
               });
-
-              $('#cont-btn').on('click', function () {
-                $('#cont-btn').attr('disabled', true);
-                $('.caution').append('Xin chờ trong giây lát...');
-
-                const machineInfo = machine.checked
-                  ? `${machine.name} (x${machine.quantity}) - ${
-                      machine.quantity * machine.price
-                    }`
-                  : '';
-                const comboInfo = combo.checked
-                  ? `${combo.name} (x${combo.quantity}) - ${
-                      combo.quantity * comboPrice
-                    }`
-                  : '';
-
-                let data = {
-                  name,
-                  phone,
-                  address,
-                  email,
-                  machineInfo: machineInfo,
-                  comboInfo: comboInfo,
-                  total: totalPrice,
-                };
-                //send email
-                emailjs
-                  .send('service_ryhkd2l', 'template_dgedooh', {
-                    subject: `Khách hàng ${data.name} mua đường huyết`,
-                    reply_to:
-                      'sonpt91.bkhn@gmail.com, store.anphu@gmail.com, vuvantrung21@gmail.com',
-                    body: `1. Tên khách hàng: ${data.name}, 2.Email: ${data.email}, 3. SĐT: ${data.phone}, 4. Địa chỉ: ${data.address}, 5. Đơn hàng: 5.1 Máy: ${data.machineInfo} 5.2 Combo: ${data.comboInfo}, 6. Tổng tiền: ${data.total}`,
-                  })
-                  .then((message) => console.log(message));
-
-                // fill in gg excel
-                var dataUrl =
-                  'https://script.google.com/macros/s/AKfycbxccF9tfPvWJScddI8BOquUK47nuX4tQOHkBqZOJcim8ZM2PqIkwKzDmLgZUBdZch_W/exec';
-
-                $.ajax({
-                  type: 'POST',
-                  url: dataUrl,
-                  dataType: 'json',
-                  crossDomain: true,
-                  data: data,
-                  success: function (response) {
-                    window.location = 'thanks.html';
-                  },
-                });
-              });
             }
+          },
+          sendForm() {
+            const { name, phone, address, email, products, totalPrice } = this;
+
+            const cartInfoStr = function (products) {
+              let str = '';
+              products.forEach((product) => {
+                str += product.checked
+                  ? `${product.name} (x${product.quantity}) - ${
+                      product.quantity * product.price
+                    }
+                    `
+                  : '';
+              });
+              return str;
+            };
+
+            $('#cont-btn').attr('disabled', true);
+            $('.caution').append('Xin chờ trong giây lát...');
+
+            let data = {
+              name,
+              phone,
+              address,
+              email,
+              products: cartInfoStr(products),
+              total: totalPrice,
+            };
+            //send email
+            emailjs
+              .send('service_ryhkd2l', 'template_dgedooh', {
+                subject: `Khách hàng ${data.name} mua đường huyết`,
+                reply_to:
+                  'sonpt91.bkhn@gmail.com, store.anphu@gmail.com, vuvantrung21@gmail.com',
+                body: `1. Tên khách hàng: ${data.name}, 2.Email: ${data.email}, 3. SĐT: ${data.phone}, 4. Địa chỉ: ${data.address}, 5. Đơn hàng: ${data.products}, 6. Tổng tiền: ${data.total}`,
+              })
+              .then((message) => console.log(message));
+            // fill in gg excel
+            var dataUrl =
+              'https://script.google.com/macros/s/AKfycbxccF9tfPvWJScddI8BOquUK47nuX4tQOHkBqZOJcim8ZM2PqIkwKzDmLgZUBdZch_W/exec';
+            $.ajax({
+              type: 'POST',
+              url: dataUrl,
+              dataType: 'json',
+              crossDomain: true,
+              data: data,
+              success: function (response) {
+                window.location = 'thanks.html';
+              },
+            });
           },
         },
         computed: {
           totalPrice: function () {
-            let total = 0;
-            if (this.machine.checked)
-              total += this.machine.quantity * this.machine.price;
-            if (this.combo.checked)
-              total += this.combo.quantity * this.comboPrice;
-            return total;
-          },
-          comboPrice: function () {
-            return this.machine.checked ? 99000 : 119000;
+            return this.products.reduce(
+              (total, product) => total + this.finalPriceOf(product),
+              0,
+            );
           },
         },
       });
