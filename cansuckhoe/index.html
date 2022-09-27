@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="author" content="LamPT" />
+    <meta
+      name="description"
+      content="Cân sức khỏe điện tử thông minh Genky: phân tích mỡ, nước, cơ, xương và lượng calo cần thiết cho cơ thể, hiển thị toàn bộ thông tin trên màn hình siêu rộng. Thông báo thay đổi trọng lượng qua 3 màu đèn màn hình. Thiết kế công thái học cao cấp."
+    />
+    <meta
+      name="keywords"
+      content="Cân sức khoẻ thông minh, cân sức khoẻ, cân thông minh, cân, cân genky, cân thông minh genky, cân sức khoẻ genky"
+    />
+
+    <meta property="og:url" content="https://yamadacare.vn/cansuckhoe" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="CÂN SỨC KHOẺ THÔNG MINH GENKY" />
+    <meta property="og:image" content="image/genky2.jpg" />
+    <meta
+      property="og:description"
+      content="Cân sức khỏe điện tử thông minh Genky: phân tích mỡ, nước, cơ, xương và lượng calo cần thiết cho cơ thể, hiển thị toàn bộ thông tin trên màn hình siêu rộng. Thông báo thay đổi trọng lượng qua 3 màu đèn màn hình. Thiết kế công thái học cao cấp."
+    />
+
+    <title>CÂN SỨC KHOẺ THÔNG MINH GENKY</title>
+
+    <link rel="shortcut icon" type="image/png" href="image/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Site library -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+    />
+
+    <!-- Page library -->
+    <link rel="stylesheet" href="css/candientu.css" />
+    <!-- Global site tag (gtag.js) - Google Ads: 806236185 -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-806236185"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'AW-806236185');
+    </script>
+
+    <!-- email settings -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init('user_10EW8QCywsxKiHtS70vf8');
+      })();
+    </script>
+  </head>
+
+  <body>
+    <!-- Messenger Plugin chat Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat"></div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute('page_id', '2189366688050963');
+      chatbox.setAttribute('attribution', 'biz_inbox');
+      window.fbAsyncInit = function () {
+        FB.init({
+          xfbml: true,
+          version: 'v11.0',
+        });
+      };
+
+      (function (d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, 'script', 'facebook-jssdk');
+    </script>
+    <!-- Header Area wrapper Starts -->
+    <header>
+      <nav class="navbar">
+        <img
+          data-original="image/logo.png"
+          alt="genky logo"
+          class="lazy"
+          width="100px"
+        />
+
+        <div class="d-flex flex-row">
+          <a href="#" class="nav-link btn warranty-btn"> Bảo hành </a>
+          <a href="#" class="nav-link btn order-btn order-scroll"> Đặt hàng </a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="banner pt-4">
+      <h1 class="text-center">
+        Cân sức khoẻ <br />thông minh
+        <span>GENKY</span>
+      </h1>
+      <img
+        data-original="image/h1-under.png"
+        alt="h1 desc"
+        class="img-fluid lazy mb-4"
+      />
+      <img
+        data-original="image/genky3.jpg"
+        class="img-fluid lazy"
+        alt="nhiet ke"
+      />
+    </div>
+
+    <section class="explore-section">
+      <h2>
+        <span>Khám phá tính năng</span>
+      </h2>
+
+      <div class="youtube-player mb-3">
+        <iframe
+          src="https://www.youtube.com/embed/k7WIbQS8zG4?rel=0"
+          title="Giới thiệu về cân thông minh GENKY"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <div class="functionality">
+        <div class="tracking-section">
+          <h3>
+            <span>Theo dõi <span class="special">sự thay đổi</span></span>
+          </h3>
+          <p class="text-center">
+            Theo dõi sự thay đổi khối lượng so với mục tiêu đề ra thông qua 3
+            màu đèn màn hình
+          </p>
+          <img
+            data-original="image/change_tracking.jpg"
+            alt="changing tracking"
+            class="img-fluid lazy"
+          />
+        </div>
+
+        <div class="wide-section">
+          <h3>
+            <span>Màn hình <span class="special">siêu rộng</span></span>
+          </h3>
+          <p class="text-center">
+            Tất cả chỉ số sức khỏe đều được hiển thị trên màn hình siêu rộng mà
+            KHÔNG cần kết nối với điện thoại
+          </p>
+          <img
+            data-original="image/widescreen.jpg"
+            alt="wide screen"
+            class="img-fluid lazy"
+          />
+        </div>
+
+        <div class="detect-section">
+          <h3>
+            <span>Nhận diện <span class="special">người dùng</span></span>
+          </h3>
+          <p class="text-center">
+            Một khi hồ sơ người dùng được thiết lập, Genky sẽ tự động nhận diện
+            lên đến 9 người dùng khi bạn sử dụng trong tương lai
+          </p>
+          <img
+            data-original="image/detect_person.jpg"
+            alt="detect person"
+            class="img-fluid lazy"
+          />
+        </div>
+
+        <div class="classify-section">
+          <h3>
+            <span>Phân loại <span class="special">cấp độ mỡ</span></span>
+          </h3>
+          <p class="text-center">
+            Tự động so sánh phần trăm mỡ cơ thể với khoảng cho phép. Thanh chỉ
+            thị sẽ hiển thị cấp độ mỡ cơ thể dựa trên giới tính và độ tuổi của
+            bạn
+          </p>
+          <img
+            data-original="image/classify.jpg"
+            alt="classification"
+            class="img-fluid lazy"
+          />
+        </div>
+
+        <div class="chiso-section">
+          <h3>
+            <span>Hiểu rõ <span class="special">cơ thể bạn</span></span>
+          </h3>
+          <p class="text-center">
+            Tất cả các chỉ số sẽ hướng dẫn bạn duy trì một lối sống lành mạnh và
+            sức khỏe hơn
+          </p>
+          <img
+            data-original="image/chiso.jpg"
+            alt="understand body"
+            class="img-fluid lazy"
+          />
+        </div>
+
+        <div class="bia-section">
+          <h3>
+            <span>Độ chính xác <span class="special">cao</span></span>
+          </h3>
+          <p class="text-center">
+            Hiểu rõ chính xác sức khỏe tổng thể của bạn nhờ 4 cảm biến điện sinh
+            học BIA tân tiến
+          </p>
+          <img
+            data-original="image/BIA.jpg"
+            alt="BIA technology"
+            class="img-fluid lazy"
+          />
+        </div>
+
+        <div class="function-section">
+          <h3>
+            <span
+              ><span class="special">Thông minh</span> &
+              <span class="special">đơn giản</span></span
+            >
+          </h3>
+          <p class="text-center">
+            Tự động 100% cùng với thao tác vô cùng đơn giản, ai cũng có thể sử
+            dụng một cách dễ dàng
+          </p>
+          <img
+            data-original="image/function.jpg"
+            alt="function"
+            class="img-fluid lazy"
+          />
+        </div>
+
+        <div class="safe-section">
+          <div class="content">
+            <h3>
+              <span class="special">AN TOÀN </span>
+            </h3>
+            <p class="text-center">
+              Thiết kế công thái học tuyệt vời giúp bạn hoàn toàn an tâm khi sử
+              dụng
+            </p>
+          </div>
+
+          <img
+            data-original="image/safe.jpg"
+            alt="safe"
+            class="img-fluid lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="instruction-section pb-0">
+      <h2>
+        <span>Hướng dẫn sử dụng GENKY</span>
+      </h2>
+      <div class="youtube-player">
+        <iframe
+          src="https://www.youtube.com/embed/urXab7YGEKw?rel=0"
+          title="Hướng dẫn sử dụng cân thông minh GENKY"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
+
+    <section id="warranty-section">
+      <div class="container">
+        <h2>
+          <span>1 ĐỔI 1 NGAY TẠI NHÀ TRONG 12 THÁNG</span>
+        </h2>
+        <div class="row mt-3">
+          <div class="col-md-3 col-6 mb-4">
+            <img
+              data-original="image/warranty1.png"
+              alt="warranty"
+              class="img-fluid lazy"
+              width="80px"
+            />
+            <p class="mt-2">
+              1. Khi gặp sự cố, quý khách hãy liên lạc với Genky như trên phiếu
+              bảo hành
+            </p>
+          </div>
+          <div class="col-md-3 col-6 mb-4">
+            <img
+              data-original="image/warranty2.png"
+              alt="warranty"
+              class="img-fluid lazy"
+              width="80px"
+            />
+            <p class="mt-2">
+              2. Kỹ thuật viên gọi điện video xác minh tình trạng sản phẩm
+            </p>
+          </div>
+          <div class="col-md-3 col-6">
+            <img
+              data-original="image/warranty3.png"
+              alt="warranty"
+              class="img-fluid lazy"
+              width="80px"
+            />
+            <p class="mt-2">3. Genky gửi sản phẩm mới tới tận nhà quý khách</p>
+          </div>
+          <div class="col-md-3 col-6">
+            <img
+              data-original="image/warranty4.png"
+              alt="warranty"
+              class="img-fluid lazy"
+              width="80px"
+            />
+            <p class="mt-2">
+              4. Quý khách nhận máy mới và trao trả lại sản phẩm lỗi cho nhân
+              viên giao hàng
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section class="customer-section">
+      <h2 class="customer-title">
+        <span>Đánh giá của khách hàng</span>
+      </h2>
+      <div class="slider-center slide mt-4"></div>
+    </section> -->
+
+    <div class="bg-light">
+      <ul class="circles fetures-circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <section id="order-section">
+        <div class="container">
+          <h2>
+            <span>Mua ngay cân điện tử GENKY</span>
+          </h2>
+
+          <div class="km text-center mb-3">
+            <p>
+              <span class="with font-italic">Giá mới</span>
+              <span class="price">599.000đ</span>
+            </p>
+            <p class="del-price">
+              <del>899.000 đ</del>
+            </p>
+            <p class="mt-2 font-weight-bold">Thời gian khuyến mãi:</p>
+            <p class="days"></p>
+            <div class="more-gift"></div>
+            <p class="mt-3 more-gift font-italic p-0">
+              <span>
+                Ngoài ra khách hàng còn có thể nhận ưu đãi tốt hơn khi truy cập
+                ngay:
+              </span>
+            </p>
+          </div>
+
+          <div class="social-section mt-3">
+            <div class="row justify-content-center align-self-center">
+              <div class="col-md-4 col-6">
+                <a
+                  href="https://tiki.vn/can-suc-khoe-dien-tu-thong-minh-genky-phan-tich-co-the-theo-doi-mo-co-nuoc-xuong-calo-man-hinh-sieu-rong-p107181651.html?spid=107181652"
+                >
+                  <img
+                    data-original="image/tiki.png"
+                    alt="tiki"
+                    class="lazy img-fluid"
+                  />
+                </a>
+              </div>
+              <div class="col-md-4 col-6">
+                <a
+                  href="https://shopee.vn/product/93125245/10212155526?smtt=0.93126723-1631542866.9"
+                >
+                  <img
+                    data-original="image/shopee.png"
+                    alt="shopee"
+                    class="lazy img-fluid"
+                  />
+                </a>
+              </div>
+              <div class="col-md-4 col-6">
+                <a href="https://s.lazada.vn/s.YctKo">
+                  <img
+                    data-original="image/lazada.png"
+                    alt="lazada"
+                    class="lazy img-fluid"
+                /></a>
+              </div>
+              <div class="col-md-4 col-6">
+                <a
+                  href="
+                https://www.sendo.vn/can-suc-khoe-dien-tu-thong-minh-genky-phan-tich-co-the-theo-doi-mo-co-nuoc-xuong-calo-man-hinh-sieu-rong-45349004.html"
+                >
+                  <img
+                    data-original="image/sendo.png"
+                    alt="sendo"
+                    class="lazy img-fluid"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="quyenloi mt-4">
+            <ul>
+              <li>
+                <i class="far fa-check-circle"></i>Mã freeship toàn quốc <br />
+                (khách áp dụng mã)
+              </li>
+              <li>
+                <i class="far fa-check-circle"></i>Bảo hành 1 đổi 1 ngay TẠI
+                NHÀ<br />
+                trong 12 tháng
+              </li>
+            </ul>
+          </div>
+
+          <form id="order-form" class="mt-5" name="submit-to-google-sheet">
+            <h3>
+              <span
+                >Nhận <span class="special">tư vấn nhanh chóng</span> từ
+                GENKY</span
+              >
+            </h3>
+            <div class="form-group">
+              <input
+                name="name"
+                type="text"
+                class="form-control"
+                placeholder="Họ và tên (bắt buộc)"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                name="email"
+                type="text"
+                class="form-control"
+                placeholder="Email"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                name="phone"
+                type="text"
+                class="form-control"
+                placeholder="Nhập số điện thoại (bắt buộc)"
+              />
+            </div>
+            <div class="form-group">
+              <textarea
+                name="note"
+                class="form-control"
+                rows="5"
+                placeholder="Nhập địa chỉ của bạn"
+              ></textarea>
+            </div>
+            <div class="mt-3">
+              <button type="submit" class="btn order-btn">Đăng ký</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <section class="may-know-section mt-3">
+      <h2><span>CÓ THỂ BẠN QUAN TÂM</span></h2>
+      <div class="row justify-content-center">
+        <div class="col-md-3 col-6 mb-3">
+          <a href="https://yamada-japan.com/nhietke" target="_blank">
+            <img
+              data-original="image/nhietke.jpg"
+              width="400px"
+              alt="nhiet ke"
+              class="img-fluid lazy"
+            />
+          </a>
+        </div>
+        <div class="col-md-3 col-6 mb-3">
+          <a href="https://yamada-japan.com/dohuyetap" target="_blank">
+            <img
+              data-original="image/huyetap.jpg"
+              width="400px"
+              alt="huyet ap"
+              class="img-fluid lazy"
+            />
+          </a>
+        </div>
+        <div class="col-md-3 col-6 mb-3">
+          <a href="https://yamada-japan.com/doduonghuyet" target="_blank">
+            <img
+              data-original="image/duonghuyet.jpg"
+              width="400px"
+              alt="duong huyet"
+              class="img-fluid lazy"
+            />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="mb-3">
+      <hr />
+      <img src="image/logo.png" alt="logo" width="120px" />
+      <ul>
+        <li>Tầng 4, 264 Ngọc Thụy, Phường Ngọc Thụy, Long Biên, Hà Nội</li>
+        <li>Hotline: <a href="tel:+8433 491 6740">033 491 6740</a></li>
+        <!-- <li>
+          Website:
+          <a href="/"> yamadacare.vn </a>
+        </li> -->
+      </ul>
+    </footer>
+
+    <div id="callme">
+      <a href="tel:+8433 491 6740" title="liên lạc">
+        <div id="callmeMain"></div>
+      </a>
+    </div>
+
+    <!-- Confirm Modal -->
+    <div
+      class="modal fade"
+      id="confirmModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="modelTitleId"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Xác nhận lại thông tin</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body"></div>
+          <div class="caution"></div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Huỷ
+            </button>
+            <button type="button" class="btn btn-primary" id="cont-btn">
+              Tiếp tục
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="mr-auto text-primary">Khách hàng vừa mua</strong>
+        <button
+          type="button"
+          class="ml-2 mb-1 close"
+          data-dismiss="toast"
+          aria-label="Close"
+        >
+          &times;
+        </button>
+      </div>
+      <div class="toast-body"></div>
+    </div>
+
+    <!-- Site library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+    <!-- Page library -->
+    <script src="js/candientu.js"></script>
+  </body>
+</html>
