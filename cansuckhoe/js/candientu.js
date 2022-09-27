@@ -76,7 +76,7 @@ $(function () {
   var dataURL =
     'https://script.google.com/macros/s/AKfycbx_I9Y6a5zXATyy90hm1u4Z1T3eWXF3HBFuQOFQ2bKD09PXdK1PEraDXoWi2w9wsWQjeg/exec';
 
-  var form = $('#order-form');
+  var form = $('form');
   form.validate({
     rules: {
       name: 'required',
@@ -126,24 +126,28 @@ $(function () {
         backdrop: 'static',
         keyboard: false,
       });
-
-      $('#cont-btn').on('click', function () {
-        $('#cont-btn').attr('disabled', true);
-        $('.caution').append('Xin chờ trong giây lát...');
-
-        let data = {
-          name,
-          phone,
-          address,
-          email,
-        };
-        sendEmail(data);
-
-        // fill in gg excel
-        data = $('form#order-form').serialize();
-        fillInForm(dataURL, data);
-      });
     }
+  });
+  $('#cont-btn').on('click', function () {
+    let name = $("input[name='name']").val();
+    let phone = $("input[name='phone']").val();
+    let address = $("textarea[name='note']").val();
+    let email = $("input[name='email']").val();
+
+    $('#cont-btn').attr('disabled', true);
+    $('.caution').append('Xin chờ trong giây lát...');
+
+    let data = {
+      name,
+      phone,
+      address,
+      email,
+    };
+    sendEmail(data);
+
+    // fill in gg excel
+    data = $('form').serialize();
+    fillInForm(dataURL, data);
   });
 
   /* Display message
@@ -185,18 +189,6 @@ $(function () {
   $('.close').on('click', function () {
     $('.toast').hide();
   });
-
-  $('.order-scroll').on('click', function (e) {
-    e.preventDefault();
-    var target = $('#order-section').offset().top - 100;
-    $('html, body').animate({ scrollTop: target }, 500);
-  });
-
-  $('.warranty-btn').on('click', function (e) {
-    e.preventDefault();
-    var target = $('#warranty-section').offset().top - 100;
-    $('html, body').animate({ scrollTop: target }, 500);
-  });
 });
 
 /* Send email
@@ -209,24 +201,6 @@ function sendEmail(data) {
       body: `1. Tên khách hàng: ${data.name}, 2.Email: ${data.email}, 3. SĐT: ${data.phone}, 4. Địa chỉ: ${data.address}`,
     })
     .then((message) => console.log(message));
-  // Email.send({
-  //   Host: 'smtp.elasticemail.com',
-  //   Username: 'noreply200474@gmail.com',
-  //   Password: '281171344F3555517A2432D2031290CF228A',
-  //   To: 'sonpt91.bkhn@gmail.com',
-  //   From: 'noreply200474@gmail.com',
-  //   Subject: 'Customer subcriber',
-  //   Body: `1. Tên khách hàng: ${data.name}, 2.Email: ${data.email}, 3. SĐT: ${data.phone}, 4. Địa chỉ: ${data.address}`,
-  // }).then((message) => console.log(message));
-  // Email.send({
-  //   Host: 'smtp.elasticemail.com',
-  //   Username: 'noreply200474@gmail.com',
-  //   Password: '281171344F3555517A2432D2031290CF228A',
-  //   To: 'vuvantrung21@gmail.com',
-  //   From: 'noreply200474@gmail.com',
-  //   Subject: 'Customer subcriber',
-  //   Body: `1. Tên khách hàng: ${data.name}, 2.Email: ${data.email}, 3. SĐT: ${data.phone}, 4. Địa chỉ: ${data.address}`,
-  // }).then((message) => console.log(message));
 }
 
 /* Send data to excel
