@@ -131,14 +131,22 @@
                   <div class="col-6 d-flex flex-column justify-content-center">
                     <h5>{{product.name}}</h5>
 
-                    <p>{{convertToViCurrency(product.price)}}</p>
+                    <p v-if="product.slug != 'adapter'">
+                      {{convertToViCurrency(product.price)}}
+                    </p>
+                    <p v-else>{{convertToViCurrency(50000)}}</p>
                     <del>{{convertToViCurrency(product.delPrice)}}</del>
-                    <div class="mt-2">
+                    <div class="mt-2" v-if="product.isGift">
+                      Tặng kèm theo máy (chương trình giới hạn áp dụng cho
+                      100KH)
+                    </div>
+                    <div class="mt-2" v-else>
                       <input
                         type="checkbox"
                         :id="product.slug"
                         class="pega"
                         v-model="product.checked"
+                        @change="onChange(product.checked)"
                       />
                       <label
                         :for="product.slug"
@@ -259,11 +267,19 @@
                   <td>{{product.name}}</td>
                   <td>
                     <div class="d-flex justify-content-center">
-                      <button type="button" @click="subQuantity(product)">
+                      <button
+                        type="button"
+                        @click="subQuantity(product)"
+                        v-if="product.slug != 'adapter'"
+                      >
                         -
                       </button>
                       <span>{{product.quantity}}</span>
-                      <button type="button" @click="addQuantity(product)">
+                      <button
+                        type="button"
+                        @click="addQuantity(product)"
+                        v-if="product.slug != 'adapter'"
+                      >
                         +
                       </button>
                     </div>
@@ -356,18 +372,20 @@
               slug: 'huyetap',
               delPrice: 930000,
               image: 'img/huyetap.jpg',
+              isGift: false,
             },
-            // {
-            //   id: 2,
-            //   name: 'Bộ đổi nguồn',
-            //   quantity: 1,
-            //   checked: false,
-            //   price: 45000,
-            //   type: 'item',
-            //   slug: 'adapter',
-            //   delPrice: 150000,
-            //   image: 'img/huyetap_sac.JPG',
-            // },
+            {
+              id: 2,
+              name: 'Bộ đổi nguồn',
+              quantity: 1,
+              checked: true,
+              price: 0,
+              type: 'item',
+              slug: 'adapter',
+              delPrice: '',
+              image: 'img/huyetap_sac.JPG',
+              isGift: true,
+            },
             // {
             //   id: 3,
             //   name: 'Bao da cao cấp',
@@ -384,9 +402,15 @@
         methods: {
           addQuantity(product) {
             product.quantity += 1;
+            this.products[
+              this.products.findIndex((pro) => pro.slug == 'adapter')
+            ].quantity += 1;
           },
           subQuantity(product) {
             product.quantity -= product.quantity > 1 ? 1 : 0;
+            this.products[
+              this.products.findIndex((pro) => pro.slug == 'adapter')
+            ].quantity = product.quantity;
           },
           finalPriceOf(product) {
             return product.checked ? product.quantity * product.price : 0;
@@ -396,6 +420,11 @@
               style: 'currency',
               currency: 'vnd',
             });
+          },
+          onChange(value) {
+            this.products[
+              this.products.findIndex((pro) => pro.slug == 'adapter')
+            ].checked = value;
           },
           checkForm(e) {
             e.preventDefault();
