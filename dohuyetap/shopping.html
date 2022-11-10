@@ -118,7 +118,7 @@
 
         <div class="container">
           <div class="row justify-content-center">
-            <div v-for="product in products" class="col-6">
+            <div v-for="product in products" class="col-md-6 col-12">
               <div class="mt-3 product-box">
                 <div class="row">
                   <div class="col-6">
@@ -134,13 +134,14 @@
                     <p v-if="product.slug != 'adapter'">
                       {{convertToViCurrency(product.price)}}
                     </p>
-                    <p v-else>{{convertToViCurrency(50000)}}</p>
+                    <p v-else>
+                      Tặng kèm theo máy
+                      <span style="font-size: 13px"
+                        >(chương trình giới hạn áp dụng cho 100KH)</span
+                      >
+                    </p>
                     <del>{{convertToViCurrency(product.delPrice)}}</del>
-                    <div class="mt-2" v-if="product.isGift">
-                      Tặng kèm theo máy (chương trình giới hạn áp dụng cho
-                      100KH)
-                    </div>
-                    <div class="mt-2" v-else>
+                    <div class="mt-2" v-if="product.slug != 'adapter'">
                       <input
                         type="checkbox"
                         :id="product.slug"
@@ -372,7 +373,6 @@
               slug: 'huyetap',
               delPrice: 930000,
               image: 'img/huyetap.jpg',
-              isGift: false,
             },
             {
               id: 2,
@@ -384,7 +384,6 @@
               slug: 'adapter',
               delPrice: '',
               image: 'img/huyetap_sac.JPG',
-              isGift: true,
             },
             // {
             //   id: 3,
