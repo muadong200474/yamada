@@ -1,5 +1,0 @@
-
-RewriteEngine on
-RewriteCond %{HTTP_HOST} ^dohuyetap\.yamada\-japan\.com$
-RewriteRule ^/?$ "https\:\/\/yamada\-japan\.com\/huyetap" [R=301,L]
-
