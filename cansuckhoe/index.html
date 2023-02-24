@@ -49,6 +49,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
     />
+    <link rel="stylesheet" href="/assets/css/common.css" />
 
     <!-- Page library -->
     <link rel="stylesheet" href="css/candientu.css" />
@@ -80,33 +81,6 @@
   </head>
 
   <body>
-    <!-- Messenger Plugin chat Code -->
-    <div id="fb-root"></div>
-
-    <!-- Your Plugin chat code -->
-    <div id="fb-customer-chat" class="fb-customerchat"></div>
-
-    <script>
-      var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute('page_id', '2189366688050963');
-      chatbox.setAttribute('attribution', 'biz_inbox');
-      window.fbAsyncInit = function () {
-        FB.init({
-          xfbml: true,
-          version: 'v11.0',
-        });
-      };
-
-      (function (d, s, id) {
-        var js,
-          fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      })(document, 'script', 'facebook-jssdk');
-    </script>
     <!-- Header Area wrapper Starts -->
     <header>
       <nav class="navbar">
@@ -402,7 +376,7 @@
 
           <div class="social-section mt-3">
             <div class="row justify-content-center align-self-center">
-              <div class="col-md-4 col-6">
+              <div class="col-md-3 col-4">
                 <a
                   href="https://tiki.vn/can-suc-khoe-dien-tu-thong-minh-genky-phan-tich-co-the-theo-doi-mo-co-nuoc-xuong-calo-man-hinh-sieu-rong-p107181651.html?spid=107181652"
                 >
@@ -413,7 +387,7 @@
                   />
                 </a>
               </div>
-              <div class="col-md-4 col-6">
+              <div class="col-md-3 col-4">
                 <a
                   href="https://shopee.vn/product/93125245/10212155526?smtt=0.93126723-1631542866.9"
                 >
@@ -424,7 +398,7 @@
                   />
                 </a>
               </div>
-              <div class="col-md-4 col-6">
+              <div class="col-md-3 col-4">
                 <a href="https://s.lazada.vn/s.YctKo">
                   <img
                     data-original="image/lazada.png"
@@ -432,7 +406,7 @@
                     class="lazy img-fluid"
                 /></a>
               </div>
-              <div class="col-md-4 col-6">
+              <div class="col-md-3 col-4">
                 <a
                   href="
                 https://www.sendo.vn/can-suc-khoe-dien-tu-thong-minh-genky-phan-tich-co-the-theo-doi-mo-co-nuoc-xuong-calo-man-hinh-sieu-rong-45349004.html"
@@ -557,9 +531,28 @@
       </ul>
     </footer>
 
-    <div id="callme">
-      <a href="tel:+8433 491 6740" title="liên lạc">
-        <div id="callmeMain"></div>
+    <div class="support-online">
+      <div class="support-content">
+        <a href="tel:0334916740" class="call-now" rel="nofollow">
+          <i class="fas fa-mobile"></i>
+          <span>Gọi Hotline</span>
+        </a>
+
+        <a class="mes" href="https://m.me/genkyvietnam" target="_blank">
+          <i class="fab fa-facebook-messenger"></i>
+          <span>Facebook</span>
+        </a>
+
+        <a class="sms" href="https://zalo.me/1036181031914344506">
+          <img
+            src="//bizweb.dktcdn.net/100/412/747/themes/800990/assets/zalo_red.png?1677032952055"
+            width="40"
+          />
+          <span>Chat Zalo</span>
+        </a>
+      </div>
+      <a class="btn-support dispc">
+        <i class="fas fa-user"></i>
       </a>
     </div>
 
@@ -630,5 +623,6 @@
 
     <!-- Page library -->
     <script src="js/candientu.js"></script>
+    <script src="/assets/js/common.js"></script>
   </body>
 </html>

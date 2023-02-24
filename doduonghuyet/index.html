@@ -29,9 +29,12 @@
     <title>Máy đo đường huyết Yamada</title>
 
     <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Site library -->
     <link
@@ -46,6 +49,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
     />
+    <link rel="stylesheet" href="/assets/css/common.css" />
 
     <!-- Page library -->
     <link rel="stylesheet" href="css/doduonghuyet.css" />
@@ -81,35 +85,6 @@
   </head>
 
   <body>
-    <!-- Messenger Plugin chat Code -->
-    <div id="fb-root"></div>
-
-    <!-- Your Plugin chat code -->
-    <div id="fb-customer-chat" class="fb-customerchat"></div>
-
-    <script>
-      var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute('page_id', '103106138745440');
-      chatbox.setAttribute('attribution', 'biz_inbox');
-
-      window.fbAsyncInit = function () {
-        FB.init({
-          xfbml: true,
-          version: 'v11.0',
-        });
-      };
-
-      (function (d, s, id) {
-        var js,
-          fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      })(document, 'script', 'facebook-jssdk');
-    </script>
-
     <header>
       <nav class="navbar">
         <img
@@ -167,15 +142,17 @@
         <h3>Trợ lý ảo <span>nói Tiếng Việt</span></h3>
         <p>Duy nhất tại Việt Nam hỗ trợ giọng nói Tiếng Việt thông minh</p>
         <img
-        data-original="image/function_assistant.jpg"
-        alt="tro ly ao tieng viet"
-        class="img-fluid lazy"
-      />
+          data-original="image/function_assistant.jpg"
+          alt="tro ly ao tieng viet"
+          class="img-fluid lazy"
+        />
       </div>
 
       <div class="hct">
         <h3>Chỉ số <span>tỉ lệ hồng cầu HCT</span></h3>
-        <p>Hỗ trợ chuẩn đoán thiếu máu, thiếu sắt và các bệnh về tim, phổi...</p>
+        <p>
+          Hỗ trợ chuẩn đoán thiếu máu, thiếu sắt và các bệnh về tim, phổi...
+        </p>
         <img
           data-original="image/function_HCT.jpg"
           alt="chi so HCT"
@@ -185,7 +162,9 @@
 
       <div class="accurancy">
         <h3>Que thử <span>siêu chính xác</span></h3>
-        <p>Công nghệ GDH-FDA với 8 điện cực, kết quả giờ đây chính xác tới 99%</p>
+        <p>
+          Công nghệ GDH-FDA với 8 điện cực, kết quả giờ đây chính xác tới 99%
+        </p>
         <img
           data-original="image/function_accurancy.jpg"
           alt="chinh xac cao"
@@ -217,8 +196,6 @@
           class="img-fluid lazy"
         />
       </div>
-
-      
     </section>
 
     <section class="compare-section">
@@ -575,7 +552,7 @@
 
           <div class="social-section mt-3">
             <div class="row justify-content-center align-self-center">
-              <div class="col-md-4 col-6">
+              <div class="col-md-3 col-4">
                 <a href="https://ti.ki/cUxgRxz2/31830E48">
                   <img
                     data-original="/assets/img/tiki.png"
@@ -584,7 +561,7 @@
                   />
                 </a>
               </div>
-              <div class="col-md-4 col-6">
+              <div class="col-md-3 col-4">
                 <a
                   href="https://shopee.vn/product/93125245/9590530656?smtt=0.93126723-1653710527.9"
                 >
@@ -595,7 +572,7 @@
                   />
                 </a>
               </div>
-              <div class="col-md-4 col-6">
+              <div class="col-md-3 col-4">
                 <a href="https://s.lazada.vn/s.cnsD7">
                   <img
                     data-original="/assets/img/lazada.png"
@@ -603,7 +580,7 @@
                     class="lazy img-fluid"
                 /></a>
               </div>
-              <div class="col-md-4 col-6">
+              <div class="col-md-3 col-4">
                 <a
                   href="https://www.sendo.vn/may-do-duong-huyet-yamada-giong-noi-tieng-viet-thu-tieu-duong-do-chi-so-hong-cau-hct-tang-10-que-thu-48800778.html"
                 >
@@ -673,9 +650,28 @@
       </ul>
     </footer>
 
-    <div id="callme">
-      <a href="tel:+8433 491 6740" title="liên lạc">
-        <div id="callmeMain"></div>
+    <div class="support-online">
+      <div class="support-content">
+        <a href="tel:0334916740" class="call-now" rel="nofollow">
+          <i class="fas fa-mobile"></i>
+          <span>Gọi Hotline</span>
+        </a>
+
+        <a class="mes" href="https://m.me/doduonghuyetyamada" target="_blank">
+          <i class="fab fa-facebook-messenger"></i>
+          <span>Facebook</span>
+        </a>
+
+        <a class="sms" href="https://zalo.me/1036181031914344506">
+          <img
+            src="//bizweb.dktcdn.net/100/412/747/themes/800990/assets/zalo_red.png?1677032952055"
+            width="40"
+          />
+          <span>Chat Zalo</span>
+        </a>
+      </div>
+      <a class="btn-support dispc">
+        <i class="fas fa-user"></i>
       </a>
     </div>
 
@@ -704,5 +700,6 @@
 
     <!-- Page library -->
     <script src="js/doduonghuyet.js"></script>
+    <script src="/assets/js/common.js"></script>
   </body>
 </html>

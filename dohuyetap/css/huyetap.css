@@ -147,37 +147,6 @@ COMMON
     transform: translateY(0px);
   }
 }
-/* ==================================
-TOAST
-=====================================*/
-.toast {
-  position: fixed;
-  bottom: 40px;
-  left: 20px;
-  z-index: 9999;
-  padding: 10px;
-  display: none;
-  background: #fff;
-  border: solid 1px #000;
-  border-radius: 20px;
-  opacity: 0.9;
-  color: #3b3d42;
-  width: 300px;
-  font-size: 12px;
-}
-@media (max-width: 767px) {
-  .toast {
-    left: 0;
-    top: 80px;
-    bottom: unset;
-  }
-}
-.toast .message-img {
-  width: 70px;
-  height: 70px;
-  clip-path: circle(40%);
-  float: left;
-}
 /*========================================
 HEADER
 ========================================*/
@@ -617,39 +586,4 @@ footer hr {
   footer {
     min-height: 250px;
   }
-}
-/* ==================================
-CALL US BUTTON
-=====================================*/
-#callme {
-  position: fixed;
-  right: 25px;
-  bottom: 90px;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  z-index: 9999;
-}
-#callme #callmeMain {
-  -moz-border-radius: 50% !important;
-  -webkit-border-radius: 50% !important;
-  border-radius: 50% !important;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  background-color: royalblue;
-  width: 50px;
-  height: 50px;
-}
-#callme #callmeMain:before {
-  content: '';
-  position: absolute;
-  width: 80%;
-  height: 80%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-image: url(https://ss.zadarma.com/callbackWidget/images/mini.png);
-  background-repeat: no-repeat;
-  background-position: center center;
 }

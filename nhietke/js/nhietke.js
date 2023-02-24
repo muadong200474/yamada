@@ -11,25 +11,6 @@ $(function () {
     }
   });
 
-  /*  Lazy load
-  ========================================================*/
-  $('img.lazy').lazyload({
-    effect: 'fadeIn',
-    threshold: 100,
-  });
-
-  /* Countdown timer
-    ========================================================*/
-  var now = new Date();
-  var prev = new Date(Date.now() - 24 * 60 * 60 * 1000);
-  $('.days').html(
-    `${prev.getDate()}/${
-      prev.getMonth() + 1
-    }/${prev.getFullYear()} - ${now.getDate()}/${
-      now.getMonth() + 1
-    }/${now.getFullYear()}`,
-  );
-
   /* Tien ich
     ========================================================*/
   $('.figureout-btn').click(function (e) {
@@ -55,36 +36,6 @@ $(function () {
       </div>
     `);
   }
-
-  /*  Slick Slider
-    ========================================================*/
-  $('.slider-center').slick({
-    lazyLoad: 'ondemand',
-    infinite: true,
-    centerMode: true,
-    arrows: false,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    slidesToShow: 3,
-    responsive: [
-      {
-        breakpoint: 769,
-        settings: {
-          arrows: false,
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          arrows: false,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  });
 });
 
 $(function () {
@@ -223,22 +174,6 @@ function sendEmail(data) {
       body: `1. Tên khách hàng: ${data.name}, 2.Email: ${data.email}, 3. SĐT: ${data.phone}, 4. Địa chỉ: ${data.address}`,
     })
     .then((message) => console.log(message));
-  // Email.send({
-  //   SecureToken: 'f51d27bf-69d9-4dc9-a953-92202ac6a4a4',
-  //   To: 'coldwind1911@gmail.com',
-  //   From: 'noreply200474@gmail.com',
-  //   Subject: 'Customer subcriber',
-  //   Body: `1. Tên khách hàng: ${data.name}, 2.Email: ${data.email}, 3. SĐT: ${data.phone}, 4. Địa chỉ: ${data.address}`,
-  // }).then((message) => console.log(message));
-  // Email.send({
-  //   Host: 'smtp.elasticemail.com',
-  //   Username: 'noreply200474@gmail.com',
-  //   Password: '281171344F3555517A2432D2031290CF228A',
-  //   To: 'vuvantrung21@gmail.com',
-  //   From: 'noreply200474@gmail.com',
-  //   Subject: 'Customer subcriber',
-  //   Body: `1. Tên khách hàng: ${data.name}, 2.Email: ${data.email}, 3. SĐT: ${data.phone}, 4. Địa chỉ: ${data.address}`,
-  // }).then((message) => console.log(message));
 }
 
 /* Send data to excel

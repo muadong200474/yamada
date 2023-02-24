@@ -73,7 +73,7 @@ h3 {
   font-weight: 700;
 }
 h3 span {
-  color: rgb(83, 169, 221)
+  color: rgb(83, 169, 221);
 }
 p {
   font-weight: 300;
@@ -500,67 +500,6 @@ footer hr {
   max-width: 70%;
   margin: 0 auto;
   padding-top: 15px;
-}
-
-/*==========================================*/
-
-/*       Message
-/*==========================================*/
-.toast {
-  position: fixed;
-  top: 80px;
-  left: 0;
-  z-index: 9999;
-  display: none;
-  background: #fff;
-  border: solid 1px #000;
-  border-radius: 10px;
-  opacity: 0.9;
-  width: 300px;
-  font-size: 12px;
-}
-.toast .special-img {
-  width: 70px;
-  height: 70px;
-  clip-path: circle(40%);
-  float: left;
-}
-
-/*==========================================*/
-
-/*       Call me
-/*==========================================*/
-#callme {
-  position: fixed;
-  right: 25px;
-  bottom: 90px;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  z-index: 9999;
-}
-#callme #callmeMain {
-  -moz-border-radius: 50% !important;
-  -webkit-border-radius: 50% !important;
-  border-radius: 50% !important;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  background-color: royalblue;
-  width: 50px;
-  height: 50px;
-}
-#callme #callmeMain:before {
-  content: '';
-  position: absolute;
-  width: 80%;
-  height: 80%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-image: url(https://ss.zadarma.com/callbackWidget/images/mini.png);
-  background-repeat: no-repeat;
-  background-position: center center;
 }
 
 @media (min-width: 600px) {

@@ -1,5 +1,6 @@
-/* Fixed bottom topbanner */
 $(function () {
+  'use strict';
+
   $(document).scroll(function () {
     if ($(this).scrollTop() > 260) {
       $('nav').addClass('fixed-top');
@@ -7,29 +8,6 @@ $(function () {
       $('nav').removeClass('fixed-top');
     }
   });
-});
-
-$(function () {
-  'use strict';
-
-  /*  Lazy load
-  ========================================================*/
-  $('img.lazy').lazyload({
-    effect: 'fadeIn',
-    threshold: 100,
-  });
-
-  /* Countdown timer
-    ========================================================*/
-  var now = new Date();
-  var prev = new Date(Date.now() - 24 * 60 * 60 * 1000);
-  $('.days').html(
-    `${prev.getDate()}/${
-      prev.getMonth() + 1
-    }/${prev.getFullYear()} - ${now.getDate()}/${
-      now.getMonth() + 1
-    }/${now.getFullYear()}`,
-  );
 
   for (var i = 1; i <= 7; i++) {
     $('.slider-center').append(`
@@ -43,28 +21,6 @@ $(function () {
     `);
   }
 
-  /*  Slick Slider
-  ========================================================*/
-  $('.slider-center').slick({
-    lazyLoad: 'ondemand',
-    infinite: true,
-    centerMode: true,
-    arrows: false,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    slidesToShow: 3,
-    centerMode: true,
-    centerPadding: '0',
-    responsive: [
-      {
-        breakpoint: 769,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  });
   /* Display message
   ========================================================*/
   var dataURL =
@@ -92,7 +48,7 @@ $(function () {
 
     $('.toast').show();
     $('.toast-body').html(
-      `<img src="${item[3]}" class="message-img">Khách hàng <strong>${
+      `<img src="${item[3]}" class="special-img">Khách hàng <strong>${
         item[0]
       }</strong> có SĐT là <strong>${
         item[1].slice(0, 7) + 'xxx'

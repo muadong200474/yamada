@@ -49,6 +49,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
     />
+    <link rel="stylesheet" href="/assets/css/common.css" />
 
     <!-- Page library -->
     <link rel="stylesheet" href="css/huyetap.css" />
@@ -97,35 +98,6 @@
         return false;
       }
     </script>
-
-    <!-- Load Facebook SDK for JavaScript -->
-    <div id="fb-root"></div>
-    <script>
-      window.fbAsyncInit = function () {
-        FB.init({
-          xfbml: true,
-          version: 'v8.0',
-        });
-      };
-      (function (d, s, id) {
-        var js,
-          fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      })(document, 'script', 'facebook-jssdk');
-    </script>
-    <!-- Your Chat Plugin code -->
-    <div
-      class="fb-customerchat"
-      attribution="setup_tool"
-      page_id="102490704573248"
-      theme_color="#fa3c4c"
-      logged_in_greeting="Xin chào, đội ngũ hỗ trợ đã sẵn sàng giúp đỡ anh chị ạ!"
-      logged_out_greeting="Xin chào, đội ngũ hỗ trợ đã sẵn sàng giúp đỡ anh chị ạ!"
-    ></div>
 
     <!-- Facebook Pixel Code -->
     <script async>
@@ -784,7 +756,7 @@
       <div class="container">
         <h2 class="mb-3">Truy cập để nhận thêm ưu đãi</h2>
         <div class="row justify-content-center align-self-center">
-          <div class="col-4">
+          <div class="col-md-3 col-4">
             <a href="https://bit.ly/3bWYvyq">
               <img
                 data-original="/assets/img/tiki.png"
@@ -793,7 +765,7 @@
               />
             </a>
           </div>
-          <div class="col-4">
+          <div class="col-md-3 col-4">
             <a href="https://bit.ly/3vmlhr8">
               <img
                 data-original="/assets/img/shopee.png"
@@ -802,7 +774,7 @@
               />
             </a>
           </div>
-          <div class="col-4">
+          <div class="col-md-3 col-4">
             <a href="https://bit.ly/3hZvWCv">
               <img
                 data-original="/assets/img/lazada.png"
@@ -810,7 +782,7 @@
                 class="lazy img-fluid"
             /></a>
           </div>
-          <div class="col-4">
+          <div class="col-md-3 col-4">
             <a href="https://bit.ly/3ANs9kp">
               <img
                 data-original="/assets/img/sendo.png"
@@ -879,12 +851,30 @@
     </footer>
     <!-- Footer Section End -->
 
-    <div id="callme">
-      <a href="tel:+8433 491 6740" title="Liên lạc">
-        <div id="callmeMain"></div>
+    <div class="support-online">
+      <div class="support-content">
+        <a href="tel:0334916740" class="call-now" rel="nofollow">
+          <i class="fas fa-mobile"></i>
+          <span>Gọi Hotline</span>
+        </a>
+
+        <a class="mes" href="https://m.me/dohuyetapyamada" target="_blank">
+          <i class="fab fa-facebook-messenger"></i>
+          <span>Facebook</span>
+        </a>
+
+        <a class="sms" href="https://zalo.me/1036181031914344506">
+          <img
+            src="//bizweb.dktcdn.net/100/412/747/themes/800990/assets/zalo_red.png?1677032952055"
+            width="40"
+          />
+          <span>Chat Zalo</span>
+        </a>
+      </div>
+      <a class="btn-support dispc">
+        <i class="fas fa-user"></i>
       </a>
     </div>
-
     <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
         <strong class="mr-auto text-primary">Khách hàng vừa mua</strong>
@@ -910,5 +900,6 @@
 
     <!-- Page library -->
     <script src="js/huyetap.js"></script>
+    <script src="/assets/js/common.js"></script>
   </body>
 </html>
