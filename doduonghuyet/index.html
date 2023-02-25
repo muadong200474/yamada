@@ -86,7 +86,7 @@
     <!-- Event snippet for Chat zalo (đường huyết) conversion page
 In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
     <script>
-      function gtag_report_conversion(url) {
+      function zalo_gtag_report_conversion(url) {
         var callback = function () {
           if (typeof url != 'undefined') {
             window.location = url;
@@ -103,7 +103,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <!-- Event snippet for chat fb (đường huyết) conversion page
 In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
     <script>
-      function gtag_report_conversion(url) {
+      function fb_gtag_report_conversion(url) {
         var callback = function () {
           if (typeof url != 'undefined') {
             window.location = url;
@@ -120,7 +120,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <!-- Event snippet for Nút gọi (đường huyết) conversion page
 In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
     <script>
-      function gtag_report_conversion(url) {
+      function phone_gtag_report_conversion(url) {
         var callback = function () {
           if (typeof url != 'undefined') {
             window.location = url;
@@ -703,17 +703,31 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
     <div class="support-online">
       <div class="support-content">
-        <a href="tel:0334916740" class="call-now" rel="nofollow">
+        <a
+          href="tel:0334916740"
+          class="call-now"
+          rel="nofollow"
+          onclick="return phone_gtag_report_conversion('tel:0334916740')"
+        >
           <i class="fas fa-mobile"></i>
           <span>Gọi Hotline</span>
         </a>
 
-        <a class="mes" href="https://m.me/doduonghuyetyamada" target="_blank">
+        <a
+          class="mes"
+          href="https://m.me/doduonghuyetyamada"
+          onclick="return fb_gtag_report_conversion('https://m.me/doduonghuyetyamada')"
+          target="_blank"
+        >
           <i class="fab fa-facebook-messenger"></i>
           <span>Facebook</span>
         </a>
 
-        <a class="sms" href="https://zalo.me/1036181031914344506">
+        <a
+          class="sms"
+          href="https://zalo.me/1036181031914344506"
+          onclick="return zalo_gtag_report_conversion('https://zalo.me/1036181031914344506')"
+        >
           <img
             src="//bizweb.dktcdn.net/100/412/747/themes/800990/assets/zalo.png?1677032952055"
             width="40"
