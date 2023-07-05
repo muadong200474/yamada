@@ -58,14 +58,14 @@
     <script>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
-        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
         var f = d.getElementsByTagName(s)[0],
           j = d.createElement(s),
-          dl = l != 'dataLayer' ? '&l=' + l : '';
+          dl = l != "dataLayer" ? "&l=" + l : "";
         j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
         f.parentNode.insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', 'GTM-TN6J883');
+      })(window, document, "script", "dataLayer", "GTM-TN6J883");
     </script>
     <!-- End Google Tag Manager -->
 
@@ -79,8 +79,8 @@
       function gtag() {
         dataLayer.push(arguments);
       }
-      gtag('js', new Date());
-      gtag('config', 'AW-806236185');
+      gtag("js", new Date());
+      gtag("config", "AW-806236185");
     </script>
 
     <!-- Event snippet for Chat zalo (huyết áp) conversion page
@@ -88,12 +88,12 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <script>
       function zalo_gtag_report_conversion(url) {
         var callback = function () {
-          if (typeof url != 'undefined') {
+          if (typeof url != "undefined") {
             window.location = url;
           }
         };
-        gtag('event', 'conversion', {
-          send_to: 'AW-806236185/-DHhCIizmo4YEJnguIAD',
+        gtag("event", "conversion", {
+          send_to: "AW-806236185/-DHhCIizmo4YEJnguIAD",
           event_callback: callback,
         });
         return false;
@@ -105,12 +105,12 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <script>
       function fb_gtag_report_conversion(url) {
         var callback = function () {
-          if (typeof url != 'undefined') {
+          if (typeof url != "undefined") {
             window.location = url;
           }
         };
-        gtag('event', 'conversion', {
-          send_to: 'AW-806236185/RXL5CIuzmo4YEJnguIAD',
+        gtag("event", "conversion", {
+          send_to: "AW-806236185/RXL5CIuzmo4YEJnguIAD",
           event_callback: callback,
         });
         return false;
@@ -122,12 +122,12 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <script>
       function phone_gtag_report_conversion(url) {
         var callback = function () {
-          if (typeof url != 'undefined') {
+          if (typeof url != "undefined") {
             window.location = url;
           }
         };
-        gtag('event', 'conversion', {
-          send_to: 'AW-806236185/8rZlCNDa8JADEJnguIAD',
+        gtag("event", "conversion", {
+          send_to: "AW-806236185/8rZlCNDa8JADEJnguIAD",
           event_callback: callback,
         });
         return false;
@@ -146,7 +146,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         if (!f._fbq) f._fbq = n;
         n.push = n;
         n.loaded = !0;
-        n.version = '2.0';
+        n.version = "2.0";
         n.queue = [];
         t = b.createElement(e);
         t.async = !0;
@@ -156,11 +156,11 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
       })(
         window,
         document,
-        'script',
-        'https://connect.facebook.net/en_US/fbevents.js',
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
       );
-      fbq('init', '650251926866396');
-      fbq('track', 'PageView');
+      fbq("init", "650251926866396");
+      fbq("track", "PageView");
     </script>
     <noscript
       ><img
@@ -290,7 +290,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <div class="days"></div>
           </div>
           <div class="price">
-            <div>Giá mới: <span>669.000đ</span><del>930.000đ</del></div>
+            <div>Giá mới: <span>639.000đ</span><del>930.000đ</del></div>
             <div style="font-size: 20px">
               <strong>(Tặng kèm bộ đổi nguồn)</strong>
             </div>
@@ -783,7 +783,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <div class="days"></div>
           </div>
           <div class="price">
-            <div>Giá mới: <span>669.000đ</span><del>930.000đ</del></div>
+            <div>Giá mới: <span>639.000đ</span><del>930.000đ</del></div>
             <div style="font-size: 20px">
               <strong>(Tặng kèm bộ đổi nguồn)</strong>
             </div>
