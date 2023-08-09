@@ -370,7 +370,7 @@
               checked: true,
               price: 699000,
               delPrice: 900000,
-              image: "img/6191.JPG",
+              image: "img/6191.jpg",
               slug: "6191",
             },
             {
@@ -380,7 +380,7 @@
               checked: false,
               price: 599000,
               delPrice: 800000,
-              image: "img/1358.JPG",
+              image: "img/1358.jpg",
               slug: "1358",
             },
           ],
@@ -476,9 +476,9 @@
             emailjs
               .send("service_ryhkd2l", "template_dgedooh", {
                 subject: `Khách hàng ${data.name} mua huyết áp`,
-                // reply_to:
-                //   "sonpt91.bkhn@gmail.com, store.anphu@gmail.com, vuvantrung21@gmail.com",
-                reply_to: "coldwind1911@gmail.com",
+                reply_to:
+                  "sonpt91.bkhn@gmail.com, store.anphu@gmail.com, vuvantrung21@gmail.com",
+                // reply_to: "coldwind1911@gmail.com",
                 body: `1. Tên khách hàng: ${data.name}, 2.Email: ${data.email}, 3. SĐT: ${data.phone}, 4. Địa chỉ: ${data.address}, 5. Đơn hàng: ${data.products}, 6. Tổng tiền: ${data.total}`,
               })
               .then((message) => console.log(message));
