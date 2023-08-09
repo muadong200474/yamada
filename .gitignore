@@ -2,7 +2,7 @@
 *
 !assets
 !assets/*
-!assets/*/*
+!assets/*/**
 !cansuckhoe
 !doduonghuyet
 !dohuyetap
