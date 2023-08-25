@@ -61,9 +61,9 @@
       function gtag() {
         dataLayer.push(arguments);
       }
-      gtag('js', new Date());
+      gtag("js", new Date());
 
-      gtag('config', 'AW-806236185');
+      gtag("config", "AW-806236185");
     </script>
 
     <!-- email settings -->
@@ -73,7 +73,7 @@
     ></script>
     <script type="text/javascript">
       (function () {
-        emailjs.init('user_10EW8QCywsxKiHtS70vf8');
+        emailjs.init("user_10EW8QCywsxKiHtS70vf8");
       })();
     </script>
   </head>
@@ -108,7 +108,7 @@
                   <h2>{{product.name}}</h2>
 
                   <p>{{convertToViCurrency(product.price)}}</p>
-                  <del v-if="product.type == 'main'">649.000 vnd</del>
+                  <del v-if="product.type == 'main'">559.000 vnd</del>
                   <p v-else class="sale">
                     (Mua kèm máy huyết áp giá chỉ còn 99.000 vnd)
                   </p>
@@ -306,33 +306,33 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
     <script>
       new Vue({
-        el: '#cart',
+        el: "#cart",
         data: {
-          name: '',
-          email: '',
-          address: '',
-          phone: '',
-          confirmPhone: '',
+          name: "",
+          email: "",
+          address: "",
+          phone: "",
+          confirmPhone: "",
           products: [
             {
               id: 1,
-              name: 'Máy đo đường huyết Yamada (tặng kèm 10 que thử)',
+              name: "Máy đo đường huyết Yamada (tặng kèm 10 que thử)",
               quantity: 1,
               checked: true,
-              price: 499000,
-              type: 'main',
-              image: 'image/may_do_duong_huyet_yamada.jpg',
-              slug: 'duonghuyet',
+              price: 459000,
+              type: "main",
+              image: "image/may_do_duong_huyet_yamada.jpg",
+              slug: "duonghuyet",
             },
             {
               id: 2,
-              name: 'Combo hộp 25 que + 25 kim',
+              name: "Combo hộp 25 que + 25 kim",
               quantity: 1,
               checked: false,
               price: 119000,
-              type: 'combo',
-              image: 'image/que_thu.jpg',
-              slug: 'quethu',
+              type: "combo",
+              image: "image/que_thu.jpg",
+              slug: "quethu",
             },
           ],
         },
@@ -346,8 +346,8 @@
           finalPriceOf(product) {
             let finalPrice = product.price;
 
-            if (product.type == 'combo') {
-              let mainProduct = this.products.find((x) => x.type === 'main');
+            if (product.type == "combo") {
+              let mainProduct = this.products.find((x) => x.type === "main");
               finalPrice = mainProduct.checked
                 ? finalPrice - 20000
                 : finalPrice;
@@ -356,14 +356,14 @@
             return product.checked ? product.quantity * finalPrice : 0;
           },
           convertToViCurrency(price) {
-            return price.toLocaleString('it-IT', {
-              style: 'currency',
-              currency: 'vnd',
+            return price.toLocaleString("it-IT", {
+              style: "currency",
+              currency: "vnd",
             });
           },
           checkForm(e) {
             e.preventDefault();
-            if ($('form').valid()) {
+            if ($("form").valid()) {
               const {
                 name,
                 phone,
@@ -376,7 +376,7 @@
               } = this;
 
               const cartInfoHTML = (products) => {
-                let str = '';
+                let str = "";
                 products.forEach((product) => {
                   str += product.checked
                     ? `
@@ -386,13 +386,13 @@
                         Giá: ${convertToViCurrency(finalPriceOf(product))}
                       </p><hr />
                       `
-                    : '';
+                    : "";
                 });
                 return str;
               };
 
-              $('#confirmModal .modal-body')
-                .html('')
+              $("#confirmModal .modal-body")
+                .html("")
                 .append(
                   `
                     <h4>Thông tin cá nhân:</h4>
@@ -404,10 +404,10 @@
                     ${cartInfoHTML(products)}
                     <p>Tổng tiền: ${convertToViCurrency(totalPrice)}</p>
                     <i style="font-size: 11px">*Xin vui lòng kiểm tra lại kĩ thông tin 1 lần nữa</i>
-                    `,
+                    `
                 );
-              $('#confirmModal').modal({
-                backdrop: 'static',
+              $("#confirmModal").modal({
+                backdrop: "static",
                 keyboard: false,
               });
             }
@@ -416,20 +416,20 @@
             const { name, phone, address, email, products, totalPrice } = this;
 
             const cartInfoStr = function (products) {
-              let str = '';
+              let str = "";
               products.forEach((product) => {
                 str += product.checked
                   ? `${product.name} (x${product.quantity}) - ${
                       product.quantity * product.price
                     }
                     `
-                  : '';
+                  : "";
               });
               return str;
             };
 
-            $('#cont-btn').attr('disabled', true);
-            $('.caution').append('Xin chờ trong giây lát...');
+            $("#cont-btn").attr("disabled", true);
+            $(".caution").append("Xin chờ trong giây lát...");
 
             let data = {
               name,
@@ -441,24 +441,24 @@
             };
             //send email
             emailjs
-              .send('service_ryhkd2l', 'template_dgedooh', {
+              .send("service_ryhkd2l", "template_dgedooh", {
                 subject: `Khách hàng ${data.name} mua đường huyết`,
                 reply_to:
-                  'sonpt91.bkhn@gmail.com, store.anphu@gmail.com, vuvantrung21@gmail.com',
+                  "sonpt91.bkhn@gmail.com, store.anphu@gmail.com, vuvantrung21@gmail.com",
                 body: `1. Tên khách hàng: ${data.name}, 2.Email: ${data.email}, 3. SĐT: ${data.phone}, 4. Địa chỉ: ${data.address}, 5. Đơn hàng: ${data.products}, 6. Tổng tiền: ${data.total}`,
               })
               .then((message) => console.log(message));
             // fill in gg excel
             var dataUrl =
-              'https://script.google.com/macros/s/AKfycbxccF9tfPvWJScddI8BOquUK47nuX4tQOHkBqZOJcim8ZM2PqIkwKzDmLgZUBdZch_W/exec';
+              "https://script.google.com/macros/s/AKfycbxccF9tfPvWJScddI8BOquUK47nuX4tQOHkBqZOJcim8ZM2PqIkwKzDmLgZUBdZch_W/exec";
             $.ajax({
-              type: 'POST',
+              type: "POST",
               url: dataUrl,
-              dataType: 'json',
+              dataType: "json",
               crossDomain: true,
               data: data,
               success: function (response) {
-                window.location = 'thanks.html';
+                window.location = "thanks.html";
               },
             });
           },
@@ -467,7 +467,7 @@
           totalPrice: function () {
             return this.products.reduce(
               (total, product) => total + this.finalPriceOf(product),
-              0,
+              0
             );
           },
         },
