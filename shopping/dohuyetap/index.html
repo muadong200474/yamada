@@ -128,7 +128,7 @@
                   />
                 </div>
                 <div class="col-6 d-flex flex-column justify-content-center">
-                  <h5>{{product.name}}</h5>
+                  <h5>{{product.name}}</br><span style="font-size: 13px; text-decoration: underline">{{product.option}}</span></h5>
 
                   <p v-if="product.price !== 0">
                     {{convertToViCurrency(product.price)}}
@@ -283,6 +283,11 @@
                 </tr>
               </tbody>
             </table>
+            <div class="text-left font-italic">
+              <p>* Miễn phí ship toàn quốc, kiểm tra hàng xong mới thanh toán</p>
+              <p>* Chính hãng 100%, có đầy đủ hoá đơn VAT công ty</p>
+              <p>* Trả hàng miễn phí 7 ngày không cần lý do</p>
+            </div>
           </div>
         </div>
       </div>
@@ -354,7 +359,8 @@
           products: [
             {
               id: 1,
-              name: "Máy Đo Huyết Áp Yamada 6191 + Vòng bít tự quấn 360 độ",
+              name: "Máy Đo Huyết Áp Yamada 6191",
+              option: "Vòng bít tự quấn 360 độ",
               quantity: 1,
               checked: false,
               price: 750000,
@@ -364,7 +370,8 @@
             },
             {
               id: 2,
-              name: "Máy Đo Huyết Áp Yamada 6191 + Vòng bít thường",
+              name: "Máy Đo Huyết Áp Yamada 6191",
+              option: "Vòng bít thường",
               quantity: 1,
               checked: false,
               price: 699000,
@@ -384,7 +391,8 @@
             // },
             {
               id: 4,
-              name: "Máy Đo Huyết Áp Yamada 1358 + Vòng bít thường",
+              name: "Máy Đo Huyết Áp Yamada 1358",
+              option: "Vòng bít thường",
               quantity: 1,
               checked: false,
               price: 599000,
