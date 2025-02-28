@@ -110,7 +110,7 @@
                   <p>{{convertToViCurrency(product.price)}}</p>
                   <del v-if="product.type == 'main'">559.000 vnd</del>
                   <p v-else class="sale">
-                    (Mua kèm máy huyết áp giá chỉ còn 99.000 vnd)
+                    (Mua kèm máy huyết áp giá chỉ còn 109.000 vnd)
                   </p>
                   <div class="mt-2">
                     <input
@@ -326,7 +326,7 @@
               name: "Máy đo đường huyết Yamada (tặng kèm 10 que thử)",
               quantity: 1,
               checked: true,
-              price: 459000,
+              price: 469000,
               type: "main",
               image: "image/may_do_duong_huyet_yamada.jpg",
               slug: "duonghuyet",
@@ -336,7 +336,7 @@
               name: "Combo hộp 25 que + 25 kim",
               quantity: 1,
               checked: false,
-              price: 119000,
+              price: 129000,
               type: "combo",
               image: "image/que_thu.jpg",
               slug: "quethu",
@@ -355,9 +355,16 @@
 
             if (product.type == "combo") {
               let mainProduct = this.products.find((x) => x.type === "main");
-              finalPrice = mainProduct.checked
-                ? finalPrice - 20000
-                : finalPrice;
+
+              console.log(product.quantity);
+              if (product.quantity == 2 || product.quantity == 3) {
+                // discount 10k when buying 2-3 combo
+                finalPrice = finalPrice - 10000;
+              }
+              if (product.quantity >= 4 || mainProduct.checked) {
+                // discount 20k when buying >3 combo
+                finalPrice = finalPrice - 20000;
+              }
             }
 
             return product.checked ? product.quantity * finalPrice : 0;
